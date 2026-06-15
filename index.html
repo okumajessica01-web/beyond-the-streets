@@ -1,33 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beyond The Streets — Technology. Transparency. Humanity.</title>
-    <meta name="description" content="Global humanitarian action powered by transparency, technology, and compassion. Donate crypto to provide food, shelter, education, healthcare, and emergency support worldwide.">
-    <meta name="keywords" content="humanitarian, crypto donation, charity, blockchain transparency, global aid">
-    <meta property="og:title" content="Beyond The Streets — Global Humanitarian Crypto Platform">
-    <meta property="og:description" content="Fast, borderless crypto donations for vulnerable communities worldwide.">
-    <meta property="og:type" content="website">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description" content="Beyond The Streets - Humanitarian relief, emergency aid, food distribution, medical support, and shelter assistance for vulnerable communities worldwide.">
+    <meta name="keywords" content="humanitarian, NGO, emergency relief, food distribution, medical support, shelter, education, donation, volunteer">
+    <title>Beyond The Streets | Humanity Has No Borders</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'deep-blue': '#0057B8',
-                        'soft-gray': '#F5F7FA',
-                        'gold': '#F5B400',
-                        'neon-blue': '#00D4FF',
-                        'neon-gold': '#FFD700',
-                        'dark-panel': '#0A1628',
+                        navy: { 50: '#e8ecf4', 100: '#c5cfe3', 200: '#9dafd0', 300: '#7590bd', 400: '#5779ae', 500: '#3a63a0', 600: '#2d5190', 700: '#1e3f7a', 800: '#0f2d64', 900: '#0a1628', 950: '#060d18' },
+                        humanitarian: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#2563eb', 600: '#1e40af', 700: '#1e3a8a', 800: '#1e3380', 900: '#172554' },
+                        hope: { 50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74', 400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c', 800: '#9a3412', 900: '#7c2d12' }
                     },
                     fontFamily: {
-                        'inter': ['Inter', 'sans-serif'],
-                        'playfair': ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Playfair Display', 'Georgia', 'serif']
                     }
                 }
             }
@@ -35,1235 +28,1254 @@
     </script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="font-inter bg-white text-gray-900 overflow-x-hidden">
+<body class="bg-navy-900 text-white font-sans antialiased overflow-x-hidden">
 
-    <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-[9999] bg-navy-900 flex items-center justify-center transition-opacity duration-700">
+        <div class="text-center">
+            <div class="loader-ring mx-auto mb-6"></div>
+            <p class="text-humanitarian-300 text-lg font-medium tracking-wider">BEYOND THE STREETS</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-[100] transition-all duration-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 md:h-20">
-                <a href="#hero" class="flex items-center gap-3 group">
-                    <svg class="w-10 h-10 md:w-12 md:h-12" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M60 105 L60 75 L45 90 L60 105 L75 90 Z" fill="#0057B8" opacity="0.9"/>
-                        <path d="M40 105 L60 75 L35 85 L40 105Z" fill="#0057B8" opacity="0.5"/>
-                        <path d="M80 105 L60 75 L85 85 L80 105Z" fill="#0057B8" opacity="0.5"/>
-                        <path d="M15 55 Q15 35 30 30 Q25 45 30 55 Q35 50 40 48 L40 65 Q25 65 15 55Z" fill="#F5B400" stroke="#F5B400" stroke-width="1"/>
-                        <path d="M105 55 Q105 35 90 30 Q95 45 90 55 Q85 50 80 48 L80 65 Q95 65 105 55Z" fill="#F5B400" stroke="#F5B400" stroke-width="1"/>
-                        <path d="M25 60 Q25 38 38 28 Q30 42 35 58" stroke="#F5B400" stroke-width="3" fill="none" stroke-linecap="round"/>
-                        <path d="M95 60 Q95 38 82 28 Q90 42 85 58" stroke="#F5B400" stroke-width="3" fill="none" stroke-linecap="round"/>
-                        <path d="M38 50 C38 42 42 35 50 32 L50 62 C42 60 38 56 38 50Z" fill="#F5B400" opacity="0.8"/>
-                        <path d="M82 50 C82 42 78 35 70 32 L70 62 C78 60 82 56 82 50Z" fill="#F5B400" opacity="0.8"/>
-                        <circle cx="60" cy="40" r="6" fill="#0057B8" opacity="0.6"/>
-                        <path d="M55 37 L60 32 L65 37" stroke="#F5B400" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <div class="flex items-center justify-between h-20 lg:h-24">
+                <!-- Logo -->
+                <a href="#home" class="flex-shrink-0 group" aria-label="Beyond The Streets Home">
+                    <svg class="h-14 w-auto lg:h-20 transition-transform duration-300 group-hover:scale-105" viewBox="0 0 420 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Rising Sun -->
+                        <circle cx="55" cy="38" r="18" fill="#f97316" opacity="0.9"/>
+                        <circle cx="55" cy="38" r="12" fill="#fb923c"/>
+                        <circle cx="55" cy="38" r="6" fill="#fff7ed"/>
+                        <!-- Sun Rays -->
+                        <line x1="55" y1="14" x2="55" y2="8" stroke="#f97316" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                        <line x1="73" y1="22" x2="78" y2="17" stroke="#f97316" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                        <line x1="37" y1="22" x2="32" y2="17" stroke="#f97316" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                        <line x1="78" y1="38" x2="84" y2="38" stroke="#f97316" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                        <line x1="32" y1="38" x2="26" y2="38" stroke="#f97316" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                        <!-- Pathway extending beyond street -->
+                        <path d="M10 82 L55 52 L100 82" stroke="#93c5fd" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                        <path d="M30 82 L55 62 L80 82" stroke="#60a5fa" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <line x1="55" y1="52" x2="55" y2="42" stroke="#bfdbfe" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6"/>
+                        <!-- Street lines -->
+                        <rect x="5" y="82" width="100" height="3" rx="1.5" fill="#4b5563" opacity="0.5"/>
+                        <line x1="15" y1="83.5" x2="30" y2="83.5" stroke="#9ca3af" stroke-width="1" stroke-dasharray="4 4" opacity="0.4"/>
+                        <line x1="70" y1="83.5" x2="95" y2="83.5" stroke="#9ca3af" stroke-width="1" stroke-dasharray="4 4" opacity="0.4"/>
+                        <!-- Human figures - helping each other -->
+                        <g opacity="0.85">
+                            <!-- Figure 1 - taller, helping -->
+                            <circle cx="42" cy="64" r="2.5" fill="#dbeafe"/>
+                            <line x1="42" y1="66.5" x2="42" y2="74" stroke="#dbeafe" stroke-width="1.8"/>
+                            <line x1="42" y1="74" x2="39" y2="80" stroke="#dbeafe" stroke-width="1.5"/>
+                            <line x1="42" y1="74" x2="45" y2="80" stroke="#dbeafe" stroke-width="1.5"/>
+                            <line x1="42" y1="69" x2="47" y2="67" stroke="#dbeafe" stroke-width="1.5"/>
+                            <!-- Figure 2 - being helped -->
+                            <circle cx="50" cy="66" r="2.2" fill="#dbeafe"/>
+                            <line x1="50" y1="68.2" x2="50" y2="75" stroke="#dbeafe" stroke-width="1.6"/>
+                            <line x1="50" y1="75" x2="47.5" y2="80" stroke="#dbeafe" stroke-width="1.4"/>
+                            <line x1="50" y1="75" x2="52.5" y2="80" stroke="#dbeafe" stroke-width="1.4"/>
+                            <line x1="50" y1="70" x2="47" y2="67" stroke="#dbeafe" stroke-width="1.4"/>
+                            <!-- Connecting hand -->
+                            <circle cx="46.5" cy="67" r="1" fill="#fb923c"/>
+                            <!-- Figure 3 - child -->
+                            <circle cx="60" cy="70" r="1.8" fill="#bfdbfe"/>
+                            <line x1="60" y1="71.8" x2="60" y2="77" stroke="#bfdbfe" stroke-width="1.4"/>
+                            <line x1="60" y1="77" x2="58" y2="81" stroke="#bfdbfe" stroke-width="1.2"/>
+                            <line x1="60" y1="77" x2="62" y2="81" stroke="#bfdbfe" stroke-width="1.2"/>
+                        </g>
+                        <!-- Bright horizon glow -->
+                        <ellipse cx="55" cy="42" rx="25" ry="8" fill="url(#horizonGlow)" opacity="0.3"/>
+                        <defs>
+                            <radialGradient id="horizonGlow" cx="50%" cy="50%">
+                                <stop offset="0%" stop-color="#f97316"/>
+                                <stop offset="100%" stop-color="transparent"/>
+                            </radialGradient>
+                        </defs>
+                        <!-- Organization Name -->
+                        <text x="118" y="42" font-family="'Playfair Display', Georgia, serif" font-size="26" font-weight="800" fill="white" letter-spacing="0.5">BEYOND</text>
+                        <text x="118" y="68" font-family="'Playfair Display', Georgia, serif" font-size="26" font-weight="800" fill="white" letter-spacing="0.5">THE STREETS</text>
+                        <line x1="118" y1="48" x2="330" y2="48" stroke="#f97316" stroke-width="2" opacity="0.6"/>
+                        <text x="118" y="85" font-family="'Inter', sans-serif" font-size="9" font-weight="500" fill="#93c5fd" letter-spacing="3">HUMANITARIAN RELIEF ORGANIZATION</text>
                     </svg>
-                    <span class="text-lg md:text-xl font-bold tracking-tight nav-brand-text">Beyond The Streets</span>
                 </a>
-                <div class="hidden lg:flex items-center gap-1">
-                    <a href="#impact" class="nav-link">Impact</a>
-                    <a href="#story" class="nav-link">Our Story</a>
-                    <a href="#crisis-map" class="nav-link">Where Help Is Needed</a>
-                    <a href="#stories" class="nav-link">Stories</a>
-                    <a href="#donate" class="nav-link">Donate</a>
-                    <a href="#transparency" class="nav-link">Transparency</a>
-                    <a href="#sponsor" class="nav-link">Sponsor</a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About Us</a>
+                    <a href="#mission" class="nav-link">Mission</a>
+                    <a href="#appeals" class="nav-link">Emergency Appeals</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#gallery" class="nav-link">Gallery</a>
+                    <a href="#news" class="nav-link">News</a>
+                    <a href="#volunteer" class="nav-link">Volunteer</a>
                     <a href="#contact" class="nav-link">Contact</a>
-                    <a href="#donate" class="ml-4 px-6 py-2.5 bg-gold text-dark-panel font-bold rounded-full hover:bg-neon-gold transition-all duration-300 text-sm tracking-wide">DONATE CRYPTO</a>
+                    <a href="#donate" class="ml-3 inline-flex items-center px-7 py-3 bg-hope-500 hover:bg-hope-600 text-white font-bold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-hope-500/30 hover:scale-105 text-sm tracking-wide">
+                        <i data-lucide="heart" class="w-4 h-4 mr-2"></i>Donate Now
+                    </a>
                 </div>
-                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden relative w-10 h-10 flex items-center justify-center" aria-label="Toggle menu">
+                    <i data-lucide="menu" class="w-6 h-6 text-white" id="menuIcon"></i>
                 </button>
             </div>
         </div>
+
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="lg:hidden hidden absolute top-full left-0 right-0 glass-dark border-t border-white/10">
-            <div class="px-4 py-6 space-y-1">
-                <a href="#impact" class="mobile-link">Impact</a>
-                <a href="#story" class="mobile-link">Our Story</a>
-                <a href="#crisis-map" class="mobile-link">Where Help Is Needed</a>
-                <a href="#stories" class="mobile-link">Stories</a>
-                <a href="#donate" class="mobile-link">Donate</a>
-                <a href="#transparency" class="mobile-link">Transparency</a>
-                <a href="#sponsor" class="mobile-link">Sponsor</a>
-                <a href="#contact" class="mobile-link">Contact</a>
-                <a href="#donate" class="block mt-4 px-6 py-3 bg-gold text-dark-panel font-bold rounded-full text-center text-sm">DONATE CRYPTO</a>
+        <div id="mobileMenu" class="lg:hidden fixed inset-0 bg-navy-900/98 backdrop-blur-xl z-[99] transform translate-x-full transition-transform duration-500 ease-in-out">
+            <div class="flex flex-col items-center justify-center h-full space-y-6">
+                <a href="#home" class="mobile-nav-link" onclick="closeMobileMenu()">Home</a>
+                <a href="#about" class="mobile-nav-link" onclick="closeMobileMenu()">About Us</a>
+                <a href="#mission" class="mobile-nav-link" onclick="closeMobileMenu()">Mission</a>
+                <a href="#appeals" class="mobile-nav-link" onclick="closeMobileMenu()">Emergency Appeals</a>
+                <a href="#projects" class="mobile-nav-link" onclick="closeMobileMenu()">Projects</a>
+                <a href="#gallery" class="mobile-nav-link" onclick="closeMobileMenu()">Gallery</a>
+                <a href="#news" class="mobile-nav-link" onclick="closeMobileMenu()">News & Updates</a>
+                <a href="#volunteer" class="mobile-nav-link" onclick="closeMobileMenu()">Volunteer</a>
+                <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()">Contact</a>
+                <a href="#donate" class="mt-4 inline-flex items-center px-8 py-4 bg-hope-500 hover:bg-hope-600 text-white font-bold rounded-full transition-all duration-300 text-lg" onclick="closeMobileMenu()">
+                    <i data-lucide="heart" class="w-5 h-5 mr-2"></i>Donate Now
+                </a>
             </div>
         </div>
     </nav>
 
-    <!-- ═══════════════════ HERO SECTION ═══════════════════ -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 bg-dark-panel">
-            <img src="http://static.photos/nature/1200x630/42" alt="Humanitarian backdrop" class="w-full h-full object-cover opacity-30">
-            <div class="absolute inset-0 bg-gradient-to-b from-dark-panel/80 via-dark-panel/60 to-dark-panel/95"></div>
-        </div>
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="particle" style="left:10%;animation-delay:0s"></div>
-            <div class="particle" style="left:20%;animation-delay:1s"></div>
-            <div class="particle" style="left:35%;animation-delay:2s"></div>
-            <div class="particle" style="left:50%;animation-delay:0.5s"></div>
-            <div class="particle" style="left:65%;animation-delay:1.5s"></div>
-            <div class="particle" style="left:80%;animation-delay:3s"></div>
-            <div class="particle" style="left:90%;animation-delay:2.5s"></div>
-        </div>
-        <div class="relative z-10 text-center px-4 max-w-6xl mx-auto">
-            <!-- BOLD LOGO -->
-            <div class="mb-8 flex justify-center animate-fade-in">
-                <svg class="w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-72 lg:h-72 hero-logo" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Street / Road -->
-                    <path d="M100 190 L100 120 L70 150 L100 190 L130 150 Z" fill="#0057B8" opacity="0.9"/>
-                    <path d="M70 190 L100 120 L50 145 L70 190Z" fill="#0057B8" opacity="0.4"/>
-                    <path d="M130 190 L100 120 L150 145 L130 190Z" fill="#0057B8" opacity="0.4"/>
-                    <path d="M100 190 L100 130" stroke="#F5B400" stroke-width="2" stroke-dasharray="4 6" opacity="0.7"/>
-                    <!-- Left Helping Hand -->
-                    <path d="M25 100 Q20 65 40 50 Q32 68 38 90 Q45 82 52 78 L55 110 Q35 112 25 100Z" fill="#F5B400"/>
-                    <path d="M30 105 Q22 70 42 48 Q33 65 40 92" stroke="#FFD700" stroke-width="4" fill="none" stroke-linecap="round"/>
-                    <path d="M48 82 C48 68 55 56 68 50 L70 105 C57 103 48 96 48 82Z" fill="#F5B400" opacity="0.85"/>
-                    <path d="M60 75 L58 100" stroke="#FFD700" stroke-width="1.5" opacity="0.5"/>
-                    <path d="M65 70 L63 100" stroke="#FFD700" stroke-width="1.5" opacity="0.5"/>
-                    <!-- Right Helping Hand -->
-                    <path d="M175 100 Q180 65 160 50 Q168 68 162 90 Q155 82 148 78 L145 110 Q165 112 175 100Z" fill="#F5B400"/>
-                    <path d="M170 105 Q178 70 158 48 Q167 65 160 92" stroke="#FFD700" stroke-width="4" fill="none" stroke-linecap="round"/>
-                    <path d="M152 82 C152 68 145 56 132 50 L130 105 C143 103 152 96 152 82Z" fill="#F5B400" opacity="0.85"/>
-                    <path d="M140 75 L142 100" stroke="#FFD700" stroke-width="1.5" opacity="0.5"/>
-                    <path d="M135 70 L137 100" stroke="#FFD700" stroke-width="1.5" opacity="0.5"/>
-                    <!-- Globe / Heart accent -->
-                    <circle cx="100" cy="68" r="12" fill="none" stroke="#0057B8" stroke-width="2" opacity="0.6"/>
-                    <path d="M93 65 L100 58 L107 65" stroke="#F5B400" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                    <ellipse cx="100" cy="68" rx="5" ry="12" fill="none" stroke="#0057B8" stroke-width="1" opacity="0.3"/>
-                    <!-- Glow effect -->
-                    <circle cx="100" cy="80" r="35" fill="url(#heroGlow)" opacity="0.3"/>
-                    <defs>
-                        <radialGradient id="heroGlow" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stop-color="#F5B400" stop-opacity="0.4"/>
-                            <stop offset="100%" stop-color="#F5B400" stop-opacity="0"/>
-                        </radialGradient>
-                    </defs>
-                </svg>
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
+        <!-- Video Background -->
+        <div class="absolute inset-0 z-0">
+            <div class="hero-video-bg">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover" poster="http://static.photos/nature/1200x630/42">
+                    <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4">
+                </video>
             </div>
-            <h1 class="font-playfair text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 animate-fade-in-up" style="animation-delay:0.2s">
-                Beyond The Streets
-            </h1>
-            <p class="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style="animation-delay:0.4s">
-                Global humanitarian action powered by <span class="text-gold font-semibold">transparency</span>, <span class="text-neon-blue font-semibold">technology</span>, and <span class="text-white font-semibold">compassion</span>.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style="animation-delay:0.6s">
-                <a href="#donate" class="group px-8 py-4 bg-gold text-dark-panel font-bold rounded-full text-lg hover:bg-neon-gold transition-all duration-300 hover:scale-105 shadow-lg shadow-gold/30">
-                    <span class="flex items-center justify-center gap-2">
-                        <i data-lucide="wallet" class="w-5 h-5"></i>
-                        Donate Crypto Now
-                    </span>
-                </a>
-                <a href="#impact" class="group px-8 py-4 border-2 border-white/30 text-white font-bold rounded-full text-lg hover:bg-white/10 transition-all duration-300 hover:scale-105">
-                    <span class="flex items-center justify-center gap-2">
-                        <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
-                        Explore Our Impact
-                    </span>
-                </a>
+            <div class="absolute inset-0 bg-gradient-to-b from-navy-900/80 via-navy-900/60 to-navy-900/95"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-navy-900/70 via-transparent to-navy-900/70"></div>
+        </div>
+
+        <!-- Floating Particles -->
+        <div class="hero-particles absolute inset-0 z-[1] pointer-events-none" aria-hidden="true"></div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-40">
+            <div class="max-w-4xl">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-humanitarian-300 text-sm font-medium mb-8 animate-fade-in-up">
+                    <span class="w-2 h-2 bg-hope-500 rounded-full mr-2 animate-pulse"></span>
+                    Emergency Relief Active — Responding Now
+                </div>
+
+                <h1 class="hero-headline font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1.05] mb-6">
+                    Humanity Has<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-hope-400 via-hope-500 to-humanitarian-400">No Borders</span>
+                </h1>
+
+                <p class="hero-subtitle text-lg sm:text-xl lg:text-2xl text-gray-300 font-light leading-relaxed max-w-2xl mb-10">
+                    Delivering emergency relief, food, shelter, medical aid, and hope to communities devastated by war, displacement, and humanitarian crises.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 mb-16">
+                    <a href="#donate" class="group inline-flex items-center justify-center px-8 py-4 bg-hope-500 hover:bg-hope-600 text-white font-bold rounded-full transition-all duration-300 hover:shadow-2xl hover:shadow-hope-500/30 hover:scale-105 text-lg">
+                        <i data-lucide="heart" class="w-5 h-5 mr-2 group-hover:animate-pulse"></i>Donate Now
+                    </a>
+                    <a href="#volunteer" class="group inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold rounded-full transition-all duration-300 hover:scale-105 text-lg">
+                        <i data-lucide="users" class="w-5 h-5 mr-2"></i>Become a Volunteer
+                    </a>
+                </div>
+
+                <!-- Impact Stats -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+                    <div class="glass-card p-4 lg:p-6 text-center group hover:bg-white/15 transition-all duration-300">
+                        <div class="text-3xl lg:text-4xl font-black text-hope-400 mb-1 counter" data-target="250000">0</div>
+                        <div class="text-xs lg:text-sm text-gray-400 font-medium uppercase tracking-wider">Lives Impacted</div>
+                    </div>
+                    <div class="glass-card p-4 lg:p-6 text-center group hover:bg-white/15 transition-all duration-300">
+                        <div class="text-3xl lg:text-4xl font-black text-humanitarian-400 mb-1 counter" data-target="45">0</div>
+                        <div class="text-xs lg:text-sm text-gray-400 font-medium uppercase tracking-wider">Countries Reached</div>
+                    </div>
+                    <div class="glass-card p-4 lg:p-6 text-center group hover:bg-white/15 transition-all duration-300">
+                        <div class="text-3xl lg:text-4xl font-black text-hope-400 mb-1 counter" data-target="1200">0</div>
+                        <div class="text-xs lg:text-sm text-gray-400 font-medium uppercase tracking-wider">Volunteers Active</div>
+                    </div>
+                    <div class="glass-card p-4 lg:p-6 text-center group hover:bg-white/15 transition-all duration-300">
+                        <div class="text-3xl lg:text-4xl font-black text-humanitarian-400 mb-1">$<span class="counter" data-target="18">0</span>M</div>
+                        <div class="text-xs lg:text-sm text-gray-400 font-medium uppercase tracking-wider">Aid Delivered</div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-            <i data-lucide="chevrons-down" class="w-8 h-8 text-white/50"></i>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+            <a href="#about" class="flex flex-col items-center text-white/50 hover:text-white/80 transition-colors" aria-label="Scroll down">
+                <i data-lucide="chevrons-down" class="w-6 h-6"></i>
+            </a>
         </div>
     </section>
 
-    <!-- ═══════════════════ LIVE IMPACT DASHBOARD ═══════════════════ -->
-    <section id="impact" class="relative py-20 md:py-28 bg-dark-panel overflow-hidden">
+    <!-- About Section -->
+    <section id="about" class="relative py-24 lg:py-32 overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-humanitarian-500/5 rounded-full blur-3xl"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="scroll-reveal">
+                    <span class="text-hope-500 font-bold text-sm uppercase tracking-[0.2em] mb-4 block">About Us</span>
+                    <h2 class="font-display text-4xl lg:text-5xl font-black mb-6 leading-tight">
+                        Restoring Dignity,<br>
+                        <span class="text-humanitarian-400">Rebuilding Lives</span>
+                    </h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        Beyond The Streets is a global humanitarian organization dedicated to providing emergency relief and long-term support to communities devastated by conflict, displacement, poverty, and natural disasters.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed mb-8">
+                        We believe every human being deserves dignity, safety, and the opportunity to rebuild. Our teams work on the frontlines of the world's most urgent crises — delivering food, medical care, shelter, and education to those who need it most. We don't just respond to emergencies; we walk alongside communities on their journey to recovery and hope.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-hope-500/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-hope-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm">Verified & Trusted</h4>
+                                <p class="text-xs text-gray-400 mt-1">Registered humanitarian organization</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-humanitarian-500/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="globe" class="w-5 h-5 text-humanitarian-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm">Global Reach</h4>
+                                <p class="text-xs text-gray-400 mt-1">Active in 45+ countries</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-hope-500/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="heart-handshake" class="w-5 h-5 text-hope-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm">People-First</h4>
+                                <p class="text-xs text-gray-400 mt-1">Dignity-centered approach</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-humanitarian-500/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="eye" class="w-5 h-5 text-humanitarian-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm">Full Transparency</h4>
+                                <p class="text-xs text-gray-400 mt-1">Every dollar tracked & reported</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#mission" class="inline-flex items-center text-hope-400 hover:text-hope-300 font-semibold transition-colors group">
+                        Learn Our Mission <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+                <div class="scroll-reveal relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="http://static.photos/people/640x360/88" alt="Humanitarian volunteers helping communities" class="w-full h-auto object-cover rounded-2xl" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900/50 to-transparent"></div>
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 glass-card p-6 max-w-[200px]">
+                        <div class="text-3xl font-black text-hope-400">12+</div>
+                        <div class="text-sm text-gray-300">Years of Service</div>
+                    </div>
+                    <div class="absolute -top-4 -right-4 glass-card p-4">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="badge-check" class="w-6 h-6 text-green-400"></i>
+                            <span class="text-sm font-bold">Verified NGO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="relative py-24 lg:py-32 bg-navy-950 overflow-hidden">
         <div class="absolute inset-0 opacity-5">
-            <div class="grid-pattern"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-humanitarian-500 rounded-full"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-hope-500 rounded-full"></div>
         </div>
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neon-blue/10 text-neon-blue text-sm font-semibold mb-4">
-                    <span class="w-2 h-2 bg-neon-blue rounded-full animate-pulse"></span>
-                    LIVE DATA
-                </span>
-                <h2 class="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Impact Dashboard</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Real-time view of our global humanitarian reach, powered by transparent crypto donations.</p>
-            </div>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                <div class="dashboard-card group">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center">
-                            <i data-lucide="coins" class="w-5 h-5 text-gold"></i>
-                        </div>
-                        <span class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Total Donations</span>
-                    </div>
-                    <div class="flex items-baseline gap-1">
-                        <span class="text-2xl md:text-4xl font-bold text-white counter" data-target="2847563" data-prefix="$">$2847563</span>
-                    </div>
-                    <span class="text-xs text-neon-blue mt-2 flex items-center gap-1">
-                        <i data-lucide="trending-up" class="w-3 h-3"></i> +12.4% this month
-                    </span>
-                </div>
-                <div class="dashboard-card group">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="w-10 h-10 rounded-lg bg-neon-blue/10 flex items-center justify-center">
-                            <i data-lucide="users" class="w-5 h-5 text-neon-blue"></i>
-                        </div>
-                        <span class="text-xs text-gray-500 uppercase tracking-wider font-semibold">People Helped</span>
-                    </div>
-                    <div class="flex items-baseline gap-1">
-                        <span class="text-2xl md:text-4xl font-bold text-white counter" data-target="184320">0</span>
-                    </div>
-                    <span class="text-xs text-green-400 mt-2 flex items-center gap-1">
-                        <i data-lucide="trending-up" class="w-3 h-3"></i> +8.7% this month
-                    </span>
-                </div>
-                <div class="dashboard-card group">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center">
-                            <i data-lucide="heart-handshake" class="w-5 h-5 text-purple-400"></i>
-                        </div>
-                        <span class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Active Projects</span>
-                    </div>
-                    <div class="flex items-baseline gap-1">
-                        <span class="text-2xl md:text-4xl font-bold text-white counter" data-target="47">0</span>
-                    </div>
-                    <span class="text-xs text-purple-400 mt-2 flex items-center gap-1">
-                        <i data-lucide="activity" class="w-3 h-3"></i> 12 emergency responses
-                    </span>
-                </div>
-                <div class="dashboard-card group">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center">
-                            <i data-lucide="globe" class="w-5 h-5 text-emerald-400"></i>
-                        </div>
-                        <span class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Countries Reached</span>
-                    </div>
-                    <div class="flex items-baseline gap-1">
-                        <span class="text-2xl md:text-4xl font-bold text-white counter" data-target="31">0</span>
-                    </div>
-                    <span class="text-xs text-emerald-400 mt-2 flex items-center gap-1">
-                        <i data-lucide="map-pin" class="w-3 h-3"></i> 5 new this quarter
-                    </span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════ OUR STORY ═══════════════════ -->
-    <section id="story" class="py-20 md:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div class="reveal-left">
-                    <span class="inline-block px-4 py-1.5 rounded-full bg-deep-blue/10 text-deep-blue text-sm font-semibold mb-6">Our Story</span>
-                    <h2 class="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold mb-8 leading-tight">Where <span class="text-gold">Compassion</span> Meets <span class="text-deep-blue">Innovation</span></h2>
-                    <div class="space-y-6 text-gray-600 text-lg leading-relaxed">
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center shrink-0">
-                                <i data-lucide="alert-circle" class="w-6 h-6 text-red-500"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-gray-900 mb-1">Traditional Aid Is Slow</h3>
-                                <p>Banking barriers, bureaucratic delays, and high fees mean help arrives too late for those who need it most.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-neon-blue/10 flex items-center justify-center shrink-0">
-                                <i data-lucide="zap" class="w-6 h-6 text-neon-blue"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-gray-900 mb-1">Crypto Enables Speed</h3>
-                                <p>Borderless, near-instant transactions mean donations reach the field in minutes, not weeks — anywhere on Earth.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center shrink-0">
-                                <i data-lucide="eye" class="w-6 h-6 text-gold"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-gray-900 mb-1">Transparency Builds Trust</h3>
-                                <p>Every donation is traceable. Every dollar is accounted for. We prove impact, not just promise it.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-deep-blue/10 flex items-center justify-center shrink-0">
-                                <i data-lucide="heart" class="w-6 h-6 text-deep-blue"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-gray-900 mb-1">Bridging Tech & Humanity</h3>
-                                <p>Beyond The Streets combines cutting-edge technology with grounded, human-centered compassion to deliver aid where it matters most.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="reveal-right space-y-4">
-                    <div class="rounded-2xl overflow-hidden shadow-2xl">
-                        <img src="http://static.photos/people/1200x630/15" alt="Humanitarian story" class="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-700">
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="rounded-2xl overflow-hidden shadow-xl">
-                            <img src="http://static.photos/people/320x240/22" alt="Community support" class="w-full h-40 md:h-48 object-cover hover:scale-105 transition-transform duration-700">
-                        </div>
-                        <div class="rounded-2xl overflow-hidden shadow-xl">
-                            <img src="http://static.photos/education/320x240/8" alt="Education program" class="w-full h-40 md:h-48 object-cover hover:scale-105 transition-transform duration-700">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════ WHERE HELP IS NEEDED MOST ═══════════════════ -->
-    <section id="crisis-map" class="py-20 md:py-28 bg-soft-gray">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-red-100 text-red-600 text-sm font-semibold mb-4">Crisis Response</span>
-                <h2 class="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Where Help Is Needed Most</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto text-lg">Interactive view of crisis regions, hunger zones, and active disaster areas where your support makes the difference.</p>
-            </div>
-            <div class="grid lg:grid-cols-3 gap-8">
-                <!-- World Map -->
-                <div class="lg:col-span-2 bg-dark-panel rounded-2xl p-4 md:p-6 relative overflow-hidden">
-                    <svg viewBox="0 0 800 400" class="w-full" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Simplified world map outlines -->
-                        <rect width="800" height="400" fill="#0A1628" rx="12"/>
-                        <!-- Grid lines -->
-                        <line x1="0" y1="100" x2="800" y2="100" stroke="#1a2a44" stroke-width="0.5"/>
-                        <line x1="0" y1="200" x2="800" y2="200" stroke="#1a2a44" stroke-width="0.5"/>
-                        <line x1="0" y1="300" x2="800" y2="300" stroke="#1a2a44" stroke-width="0.5"/>
-                        <line x1="200" y1="0" x2="200" y2="400" stroke="#1a2a44" stroke-width="0.5"/>
-                        <line x1="400" y1="0" x2="400" y2="400" stroke="#1a2a44" stroke-width="0.5"/>
-                        <line x1="600" y1="0" x2="600" y2="400" stroke="#1a2a44" stroke-width="0.5"/>
-                        <!-- North America -->
-                        <path d="M120 80 L180 60 L220 80 L230 120 L200 160 L170 180 L130 170 L100 140 L90 100 Z" fill="#1a2a44" stroke="#2a3a54" stroke-width="1"/>
-                        <!-- South America -->
-                        <path d="M180 200 L220 190 L240 220 L250 270 L230 320 L200 340 L170 310 L160 260 L170 220 Z" fill="#1a2a44" stroke="#2a3a54" stroke-width="1"/>
-                        <!-- Europe -->
-                        <path d="M370 70 L420 60 L440 80 L430 110 L400 120 L370 110 L360 90 Z" fill="#1a2a44" stroke="#2a3a54" stroke-width="1"/>
-                        <!-- Africa -->
-                        <path d="M380 140 L440 130 L470 160 L480 220 L460 280 L420 310 L380 290 L360 240 L350 180 Z" fill="#1a2a44" stroke="#2a3a54" stroke-width="1"/>
-                        <!-- Asia -->
-                        <path d="M460 60 L560 50 L620 70 L660 100 L640 140 L600 160 L540 150 L500 130 L470 100 Z" fill="#1a2a44" stroke="#2a3a54" stroke-width="1"/>
-                        <!-- Southeast Asia -->
-                        <path d="M600 160 L650 150 L680 180 L670 220 L640 230 L610 210 L600 180 Z" fill="#1a2a44" stroke="#2a3a54" stroke-width="1"/>
-                        <!-- Australia -->
-                        <path d="M620 270 L680 260 L710 290 L700 330 L660 340 L620 320 L610 290 Z" fill="#1a2a44" stroke="#2a3a54" stroke-width="1"/>
-                        <!-- Crisis Markers -->
-                        <g class="crisis-marker" data-crisis="0">
-                            <circle cx="430" cy="90" r="8" fill="#ef4444" opacity="0.6">
-                                <animate attributeName="r" values="6;12;6" dur="2s" repeatCount="indefinite"/>
-                                <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2s" repeatCount="indefinite"/>
-                            </circle>
-                            <circle cx="430" cy="90" r="4" fill="#ef4444"/>
-                        </g>
-                        <g class="crisis-marker" data-crisis="1">
-                            <circle cx="420" cy="210" r="8" fill="#f59e0b" opacity="0.6">
-                                <animate attributeName="r" values="6;12;6" dur="2.5s" repeatCount="indefinite"/>
-                                <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2.5s" repeatCount="indefinite"/>
-                            </circle>
-                            <circle cx="420" cy="210" r="4" fill="#f59e0b"/>
-                        </g>
-                        <g class="crisis-marker" data-crisis="2">
-                            <circle cx="580" cy="120" r="8" fill="#ef4444" opacity="0.6">
-                                <animate attributeName="r" values="6;12;6" dur="1.8s" repeatCount="indefinite"/>
-                                <animate attributeName="opacity" values="0.6;0.2;0.6" dur="1.8s" repeatCount="indefinite"/>
-                            </circle>
-                            <circle cx="580" cy="120" r="4" fill="#ef4444"/>
-                        </g>
-                        <g class="crisis-marker" data-crisis="3">
-                            <circle cx="640" cy="190" r="8" fill="#f59e0b" opacity="0.6">
-                                <animate attributeName="r" values="6;12;6" dur="2.2s" repeatCount="indefinite"/>
-                                <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2.2s" repeatCount="indefinite"/>
-                            </circle>
-                            <circle cx="640" cy="190" r="4" fill="#f59e0b"/>
-                        </g>
-                        <g class="crisis-marker" data-crisis="4">
-                            <circle cx="200" cy="140" r="8" fill="#8b5cf6" opacity="0.6">
-                                <animate attributeName="r" values="6;12;6" dur="2.3s" repeatCount="indefinite"/>
-                                <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2.3s" repeatCount="indefinite"/>
-                            </circle>
-                            <circle cx="200" cy="140" r="4" fill="#8b5cf6"/>
-                        </g>
-                        <g class="crisis-marker" data-crisis="5">
-                            <circle cx="210" cy="260" r="8" fill="#ef4444" opacity="0.6">
-                                <animate attributeName="r" values="6;12;6" dur="2.1s" repeatCount="indefinite"/>
-                                <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2.1s" repeatCount="indefinite"/>
-                            </circle>
-                            <circle cx="210" cy="260" r="4" fill="#ef4444"/>
-                        </g>
-                        <!-- Legend -->
-                        <circle cx="30" cy="370" r="4" fill="#ef4444"/>
-                        <text x="40" y="374" fill="#94a3b8" font-size="11">Active Crisis</text>
-                        <circle cx="140" cy="370" r="4" fill="#f59e0b"/>
-                        <text x="150" y="374" fill="#94a3b8" font-size="11">Hunger Zone</text>
-                        <circle cx="260" cy="370" r="4" fill="#8b5cf6"/>
-                        <text x="270" y="374" fill="#94a3b8" font-size="11">Disaster Recovery</text>
-                    </svg>
-                </div>
-                <!-- Crisis List -->
-                <div class="space-y-3 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
-                    <div class="crisis-card bg-white rounded-xl p-4 border-l-4 border-red-500 hover:shadow-lg transition-all cursor-pointer" data-crisis="0">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-                            <span class="text-xs font-bold text-red-500 uppercase">Active Crisis</span>
-                        </div>
-                        <h3 class="font-bold text-gray-900 mb-1">Ukraine — Conflict Zone</h3>
-                        <p class="text-sm text-gray-500 mb-3">Ongoing war displacing millions. Emergency shelter, food, and medical aid needed.</p>
-                        <span class="inline-block px-3 py-1 bg-red-50 text-red-600 text-xs font-semibold rounded-full">Emergency Response</span>
-                    </div>
-                    <div class="crisis-card bg-white rounded-xl p-4 border-l-4 border-amber-500 hover:shadow-lg transition-all cursor-pointer" data-crisis="1">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
-                            <span class="text-xs font-bold text-amber-500 uppercase">Hunger Zone</span>
-                        </div>
-                        <h3 class="font-bold text-gray-900 mb-1">East Africa — Famine</h3>
-                        <p class="text-sm text-gray-500 mb-3">Severe drought affecting 20M+ people. Food and clean water distribution ongoing.</p>
-                        <span class="inline-block px-3 py-1 bg-amber-50 text-amber-600 text-xs font-semibold rounded-full">Food & Water</span>
-                    </div>
-                    <div class="crisis-card bg-white rounded-xl p-4 border-l-4 border-red-500 hover:shadow-lg transition-all cursor-pointer" data-crisis="2">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-                            <span class="text-xs font-bold text-red-500 uppercase">Active Crisis</span>
-                        </div>
-                        <h3 class="font-bold text-gray-900 mb-1">Middle East — Displacement</h3>
-                        <p class="text-sm text-gray-500 mb-3">Millions displaced by conflict. Shelter, healthcare, and education programs active.</p>
-                        <span class="inline-block px-3 py-1 bg-red-50 text-red-600 text-xs font-semibold rounded-full">Shelter & Health</span>
-                    </div>
-                    <div class="crisis-card bg-white rounded-xl p-4 border-l-4 border-amber-500 hover:shadow-lg transition-all cursor-pointer" data-crisis="3">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
-                            <span class="text-xs font-bold text-amber-500 uppercase">Hunger Zone</span>
-                        </div>
-                        <h3 class="font-bold text-gray-900 mb-1">Southeast Asia — Typhoon Recovery</h3>
-                        <p class="text-sm text-gray-500 mb-3">Rebuilding communities after devastating storms. Housing and food support.</p>
-                        <span class="inline-block px-3 py-1 bg-amber-50 text-amber-600 text-xs font-semibold rounded-full">Rebuilding</span>
-                    </div>
-                    <div class="crisis-card bg-white rounded-xl p-4 border-l-4 border-purple-500 hover:shadow-lg transition-all cursor-pointer" data-crisis="4">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></span>
-                            <span class="text-xs font-bold text-purple-500 uppercase">Disaster Recovery</span>
-                        </div>
-                        <h3 class="font-bold text-gray-900 mb-1">Central America — Earthquake</h3>
-                        <p class="text-sm text-gray-500 mb-3">Recovery efforts following 6.8 magnitude quake. Infrastructure and medical aid.</p>
-                        <span class="inline-block px-3 py-1 bg-purple-50 text-purple-600 text-xs font-semibold rounded-full">Infrastructure</span>
-                    </div>
-                    <div class="crisis-card bg-white rounded-xl p-4 border-l-4 border-red-500 hover:shadow-lg transition-all cursor-pointer" data-crisis="5">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-                            <span class="text-xs font-bold text-red-500 uppercase">Active Crisis</span>
-                        </div>
-                        <h3 class="font-bold text-gray-900 mb-1">South America — Flood Zones</h3>
-                        <p class="text-sm text-gray-500 mb-3">Record flooding displacing hundreds of thousands. Emergency rescue and relief.</p>
-                        <span class="inline-block px-3 py-1 bg-red-50 text-red-600 text-xs font-semibold rounded-full">Emergency Relief</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════ STORIES FROM THE STREETS ═══════════════════ -->
-    <section id="stories" class="py-20 md:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-gold/10 text-gold text-sm font-semibold mb-4">Real Stories</span>
-                <h2 class="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Stories From The Streets</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto text-lg">Every donation tells a story. These are the lives your compassion has touched.</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="story-card group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                    <div class="relative overflow-hidden">
-                        <img src="http://static.photos/people/640x360/33" alt="Amara's Story" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 right-4">
-                            <span class="px-3 py-1 bg-gold/90 text-dark-panel text-xs font-bold rounded-full">Food & Shelter</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 text-sm text-gray-400 mb-3">
-                            <i data-lucide="map-pin" class="w-4 h-4"></i>
-                            <span>Lagos, Nigeria</span>
-                        </div>
-                        <h3 class="font-bold text-xl mb-2">Amara's New Beginning</h3>
-                        <p class="text-gray-500 leading-relaxed mb-4">After losing her home to flooding, Amara and her three children received emergency shelter and meals through your donations. Today, she runs a small business.</p>
-                        <div class="flex items-center gap-2 text-deep-blue font-semibold text-sm group-hover:gap-3 transition-all">
-                            <span>Read Full Story</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="story-card group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                    <div class="relative overflow-hidden">
-                        <img src="http://static.photos/people/640x360/47" alt="Rami's Story" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 right-4">
-                            <span class="px-3 py-1 bg-deep-blue/90 text-white text-xs font-bold rounded-full">Education</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 text-sm text-gray-400 mb-3">
-                            <i data-lucide="map-pin" class="w-4 h-4"></i>
-                            <span>Beirut, Lebanon</span>
-                        </div>
-                        <h3 class="font-bold text-xl mb-2">Rami's Classroom Dream</h3>
-                        <p class="text-gray-500 leading-relaxed mb-4">Displaced by conflict, 12-year-old Rami couldn't attend school for two years. Your support built a community classroom where he now thrives.</p>
-                        <div class="flex items-center gap-2 text-deep-blue font-semibold text-sm group-hover:gap-3 transition-all">
-                            <span>Read Full Story</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="story-card group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                    <div class="relative overflow-hidden">
-                        <img src="http://static.photos/people/640x360/61" alt="Sunita's Story" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 right-4">
-                            <span class="px-3 py-1 bg-emerald-500/90 text-white text-xs font-bold rounded-full">Healthcare</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 text-sm text-gray-400 mb-3">
-                            <i data-lucide="map-pin" class="w-4 h-4"></i>
-                            <span>Dhaka, Bangladesh</span>
-                        </div>
-                        <h3 class="font-bold text-xl mb-2">Sunita's Second Chance</h3>
-                        <p class="text-gray-500 leading-relaxed mb-4">Sunita couldn't afford life-saving surgery until our medical aid program stepped in. She's now healthy and volunteering to help others.</p>
-                        <div class="flex items-center gap-2 text-deep-blue font-semibold text-sm group-hover:gap-3 transition-all">
-                            <span>Read Full Story</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════ VIDEO IMPACT WALL ═══════════════════ -->
-    <section id="videos" class="py-20 md:py-28 bg-dark-panel">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-red-500/10 text-red-400 text-sm font-semibold mb-4">Video Stories</span>
-                <h2 class="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Video Impact Wall</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto text-lg">See the impact of your donations through the eyes of the communities we serve.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="group relative rounded-2xl overflow-hidden aspect-[9/16] bg-gray-800 cursor-pointer">
-                    <img src="http://static.photos/wellness/640x360/10" alt="Video 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="play" class="w-8 h-8 text-white fill-white"></i>
-                        </div>
-                    </div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                        <p class="text-white font-semibold text-sm">Emergency Response: On The Ground</p>
-                        <p class="text-gray-300 text-xs mt-1 flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i> Kenya</p>
-                    </div>
-                </div>
-                <div class="group relative rounded-2xl overflow-hidden aspect-[9/16] bg-gray-800 cursor-pointer">
-                    <img src="http://static.photos/education/640x360/5" alt="Video 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="play" class="w-8 h-8 text-white fill-white"></i>
-                        </div>
-                    </div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                        <p class="text-white font-semibold text-sm">Building Schools, Building Futures</p>
-                        <p class="text-gray-300 text-xs mt-1 flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i> Guatemala</p>
-                    </div>
-                </div>
-                <div class="group relative rounded-2xl overflow-hidden aspect-[9/16] bg-gray-800 cursor-pointer">
-                    <img src="http://static.photos/medical/640x360/3" alt="Video 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="play" class="w-8 h-8 text-white fill-white"></i>
-                        </div>
-                    </div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                        <p class="text-white font-semibold text-sm">Mobile Clinics Save Lives</p>
-                        <p class="text-gray-300 text-xs mt-1 flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i> Syria</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════ PHOTO IMPACT GALLERY ═══════════════════ -->
-    <section id="gallery" class="py-20 md:py-28 bg-soft-gray">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-deep-blue/10 text-deep-blue text-sm font-semibold mb-4">Gallery</span>
-                <h2 class="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Photo Impact Gallery</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto text-lg">Moments of hope captured across our global missions.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-4 md:gap-6 auto-rows-[300px] md:auto-rows-[400px]">
-                <div class="group relative rounded-2xl overflow-hidden md:row-span-2 cursor-pointer">
-                    <img src="http://static.photos/people/640x360/55" alt="Portrait of hope" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <p class="text-white font-bold">First Day of School</p>
-                        <p class="text-gray-300 text-sm">Kampala, Uganda</p>
-                    </div>
-                </div>
-                <div class="group relative rounded-2xl overflow-hidden cursor-pointer">
-                    <img src="http://static.photos/nature/1200x630/99" alt="Aid distribution" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <p class="text-white font-bold">Food Distribution Day</p>
-                        <p class="text-gray-300 text-sm">Mogadishu, Somalia</p>
-                    </div>
-                </div>
-                <div class="group relative rounded-2xl overflow-hidden cursor-pointer">
-                    <img src="http://static.photos/construction/1200x630/7" alt="Shelter building" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <p class="text-white font-bold">Building New Homes</p>
-                        <p class="text-gray-300 text-sm">Kherson, Ukraine</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════ CRYPTO DONATION SYSTEM ═══════════════════ -->
-    <section id="donate" class="py-20 md:py-28 bg-white relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/10 text-gold text-sm font-semibold mb-4">
-                    <i data-lucide="wallet" class="w-4 h-4"></i>
-                    Crypto Donations
-                </span>
-                <h2 class="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Donate Cryptocurrency</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto text-lg">Fast, borderless, and transparent. Every crypto donation goes directly to humanitarian aid.</p>
-            </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-5">
-                <!-- BTC -->
-                <div class="crypto-card bg-soft-gray rounded-2xl p-5 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gold/30">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-orange-500/10 flex items-center justify-center">
-                            <span class="text-orange-500 font-bold text-lg">₿</span>
-                        </div>
-                        <div>
-                            <p class="font-bold text-gray-900">Bitcoin</p>
-                            <p class="text-xs text-gray-400">BTC Network</p>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg p-3 mb-3 break-all">
-                        <p class="text-xs text-gray-500 font-mono" id="addr-btc">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</p>
-                    </div>
-                    <div class="flex items-center gap-2 mb-3">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh" alt="BTC QR" class="w-20 h-20 mx-auto rounded-lg bg-white p-1">
-                    </div>
-                    <button onclick="copyAddress('addr-btc')" class="w-full py-2 bg-orange-500/10 text-orange-600 rounded-lg text-sm font-semibold hover:bg-orange-500/20 transition-colors flex items-center justify-center gap-2">
-                        <i data-lucide="copy" class="w-4 h-4"></i>
-                        Copy Address
-                    </button>
-                </div>
-                <!-- ETH -->
-                <div class="crypto-card bg-soft-gray rounded-2xl p-5 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gold/30">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center">
-                            <span class="text-blue-500 font-bold text-lg">Ξ</span>
-                        </div>
-                        <div>
-                            <p class="font-bold text-gray-900">Ethereum</p>
-                            <p class="text-xs text-gray-400">ERC-20 Network</p>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg p-3 mb-3 break-all">
-                        <p class="text-xs text-gray-500 font-mono" id="addr-eth">0x71C7656EC7ab88b098defB751B7401B5f6d8976F</p>
-                    </div>
-                    <div class="flex items-center gap-2 mb-3">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=0x71C7656EC7ab88b098defB751B7401B5f6d8976F" alt="ETH QR" class="w-20 h-20 mx-auto rounded-lg bg-white p-1">
-                    </div>
-                    <button onclick="copyAddress('addr-eth')" class="w-full py-2 bg-blue-500/10 text-blue-600 rounded-lg text-sm font-semibold hover:bg-blue-500/20 transition-colors flex items-center justify-center gap-2">
-                        <i data-lucide="copy" class="w-4 h-4"></i>
-                        Copy Address
-                    </button>
-                </div>
-                <!-- SOL -->
-                <div class="crypto-card bg-soft-gray rounded-2xl p-5 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gold/30">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center">
-                            <span class="text-purple-500 font-bold text-lg">◎</span>
-                        </div>
-                        <div>
-                            <p class="font-bold text-gray-900">Solana</p>
-                            <p class="text-xs text-gray-400">SOL Network</p>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg p-3 mb-3 break-all">
-                        <p class="text-xs text-gray-500 font-mono" id="addr-sol">7EcDhSYGxXyscszYEp35KHN8vvw3svAuLKTzXwCFLtV</p>
-                    </div>
-                    <div class="flex items-center gap-2 mb-3">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=7EcDhSYGxXyscszYEp35KHN8vvw3svAuLKTzXwCFLtV" alt="SOL QR" class="w-20 h-20 mx-auto rounded-lg bg-white p-1">
-                    </div>
-                    <button onclick="copyAddress('addr-sol')" class="w-full py-2 bg-purple-500/10 text-purple-600 rounded-lg text-sm font-semibold hover:bg-purple-500/20 transition-colors flex items-center justify-center gap-2">
-                        <i data-lucide="copy" class="w-4 h-4"></i>
-                        Copy Address
-                    </button>
-                </div>
-                <!-- USDT -->
-                <div class="crypto-card bg-soft-gray rounded-2xl p-5 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gold/30">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
-                            <span class="text-emerald-500 font-bold text-lg">₮</span>
-                        </div>
-                        <div>
-                            <p class="font-bold text-gray-900">Tether USDT</p>
-                            <p class="text-xs text-gray-400">TRC-20 Network</p>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg p-3 mb-3 break-all">
-                        <p class="text-xs text-gray-500 font-mono" id="addr-usdt">TN2YqRhkYjW8sUeY9FBnhVr7K9QWz4bRRR</p>
-                    </div>
-                    <div class="flex items-center gap-2 mb-3">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=TN2YqRhkYjW8sUeY9FBnhVr7K9QWz4bRRR" alt="USDT QR" class="w-20 h-20 mx-auto rounded-lg bg-white p-1">
-                    </div>
-                    <button onclick="copyAddress('addr-usdt')" class="w-full py-2 bg-emerald-500/10 text-emerald-600 rounded-lg text-sm font-semibold hover:bg-emerald-500/20 transition-colors flex items-center justify-center gap-2">
-                        <i data-lucide="copy" class="w-4 h-4"></i>
-                        Copy Address
-                    </button>
-                </div>
-                <!-- LTC -->
-                <div class="crypto-card bg-soft-gray rounded-2xl p-5 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gold/30">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-gray-500/10 flex items-center justify-center">
-                            <span class="text-gray-500 font-bold text-lg">Ł</span>
-                        </div>
-                        <div>
-                            <p class="font-bold text-gray-900">Litecoin</p>
-                            <p class="text-xs text-gray-400">LTC Network</p>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg p-3 mb-3 break-all">
-                        <p class="text-xs text-gray-500 font-mono" id="addr-ltc">ltc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</p>
-                    </div>
-                    <div class="flex items-center gap-2 mb-3">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=ltc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh" alt="LTC QR" class="w-20 h-20 mx-auto rounded-lg bg-white p-1">
-                    </div>
-                    <button onclick="copyAddress('addr-ltc')" class="w-full py-2 bg-gray-500/10 text-gray-600 rounded-lg text-sm font-semibold hover:bg-gray-500/20 transition-colors flex items-center justify-center gap-2">
-                        <i data-lucide="copy" class="w-4 h-4"></i>
-                        Copy Address
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════ MULTI-WALLET TRANSPARENCY VIEWER ═══════════════════ -->
-    <section id="wallet-viewer" class="py-20 md:py-28 bg-dark-panel relative overflow-hidden">
-        <div class="absolute inset-0 opacity-5"><div class="grid-pattern"></div></div>
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neon-blue/10 text-neon-blue text-sm font-semibold mb-4">
-                    <span class="w-2 h-2 bg-neon-blue rounded-full animate-pulse"></span>
-                    Transparency Engine
-                </span>
-                <h2 class="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Multi-Wallet Transparency</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Real-time view of all donation wallets. Every transaction visible. Every dollar accountable.</p>
-            </div>
-            <div class="glass-panel rounded-2xl p-6 md:p-8">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Wallet Balances -->
-                    <div>
-                        <h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
-                            <i data-lucide="wallet" class="w-5 h-5 text-gold"></i>
-                            Wallet Balances
-                        </h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                                <div class="flex items-center gap-3">
-                                    <span class="text-orange-500 font-bold">₿</span>
-                                    <span class="text-white text-sm font-medium">Bitcoin</span>
-                                </div>
-                                <span class="text-gold font-mono text-sm">1.2847 BTC</span>
-                            </div>
-                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                                <div class="flex items-center gap-3">
-                                    <span class="text-blue-500 font-bold">Ξ</span>
-                                    <span class="text-white text-sm font-medium">Ethereum</span>
-                                </div>
-                                <span class="text-gold font-mono text-sm">14.52 ETH</span>
-                            </div>
-                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                                <div class="flex items-center gap-3">
-                                    <span class="text-purple-500 font-bold">◎</span>
-                                    <span class="text-white text-sm font-medium">Solana</span>
-                                </div>
-                                <span class="text-gold font-mono text-sm">342.8 SOL</span>
-                            </div>
-                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                                <div class="flex items-center gap-3">
-                                    <span class="text-emerald-500 font-bold">₮</span>
-                                    <span class="text-white text-sm font-medium">USDT</span>
-                                </div>
-                                <span class="text-gold font-mono text-sm">$48,320.00</span>
-                            </div>
-                            <div class="flex items-center justify-between p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                                <div class="flex items-center gap-3">
-                                    <span class="text-gray-400 font-bold">Ł</span>
-                                    <span class="text-white text-sm font-medium">Litecoin</span>
-                                </div>
-                                <span class="text-gold font-mono text-sm">86.3 LTC</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Recent Donations Feed -->
-                    <div>
-                        <h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
-                            <i data-lucide="activity" class="w-5 h-5 text-neon-blue"></i>
-                            Recent Donations
-                        </h3>
-                        <div class="space-y-3" id="donation-feed">
-                            <div class="donation-entry p-3 rounded-lg bg-white/5 border-l-2 border-gold">
-                                <div class="flex justify-between items-start">
-                                    <div>
-                                        <p class="text-white text-sm font-medium">0x8f3a...d4c2</p>
-                                        <p class="text-gray-500 text-xs">ETH • 0.5 ETH</p>
-                                    </div>
-                                    <span class="text-gray-500 text-xs">2 min ago</span>
-                                </div>
-                            </div>
-                            <div class="donation-entry p-3 rounded-lg bg-white/5 border-l-2 border-orange-500">
-                                <div class="flex justify-between items-start">
-                                    <div>
-                                        <p class="text-white text-sm font-medium">bc1q...m7np</p>
-                                        <p class="text-gray-500 text-xs">BTC • 0.02 BTC</p>
-                                    </div>
-                                    <span class="text-gray-500 text-xs">8 min ago</span>
-                                </div>
-                            </div>
-                            <div class="donation-entry p-3 rounded-lg bg-white/5 border-l-2 border-emerald-500">
-                                <div class="flex justify-between items-start">
-                                    <div>
-                                        <p class="text-white text-sm font-medium">TN2Y...4bRR</p>
-                                        <p class="text-gray-500 text-xs">USDT • $100.00</p>
-                                    </div>
-                                    <span class="text-gray-500 text-xs">15 min ago</span>
-                                </div>
-                            </div>
-                            <div class="donation-entry p-3 rounded-lg bg-white/5 border-l-2 border-purple-500">
-                                <div class="flex justify-between items-start">
-                                    <div>
-                                        <p class="text-white text-sm font-medium">7EcD...FLtV</p>
-                                        <p class="text-gray-500 text-xs">SOL • 5.0 SOL</p>
-                                    </div>
-                                    <span class="text-gray-500 text-xs">23 min ago</span>
-                                </div>
-                            </div>
-                            <div class="donation-entry p-3 rounded-lg bg-white/5 border-l-2 border-gold">
-                                <div class="flex justify-between items-start">
-                                    <div>
-                                        <p class="text-white text-sm font-medium">0xf1c9...a8e3</p>
-                                        <p class="text-gray-500 text-xs">ETH • 1.2 ETH</p>
-                                    </div>
-                                    <span class="text-gray-500 text-xs">31 min ago</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════ DONATION DISCLAIMER ═══════════════════ -->
-    <section class="py-12 bg-gold/5 border-y border-gold/20">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center shrink-0">
-                    <i data-lucide="info" class="w-6 h-6 text-gold"></i>
-                </div>
-                <div>
-                    <h3 class="font-bold text-gray-900 mb-2">Important Notice</h3>
-                    <p class="text-gray-600 leading-relaxed">Beyond The Streets uses cryptocurrency as its primary donation method because it provides the most accessible, fast, and globally available way for supporters to contribute from different parts of the world. This system helps overcome traditional banking barriers and ensures humanitarian support can be received efficiently and transparently.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════ TRANSPARENCY HUB ═══════════════════ -->
-    <section id="transparency" class="py-20 md:py-28 bg-soft-gray">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-deep-blue/10 text-deep-blue text-sm font-semibold mb-4">Full Accountability</span>
-                <h2 class="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Transparency Hub</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto text-lg">We don't just ask for trust — we prove where every dollar goes.</p>
-            </div>
-            <div class="grid lg:grid-cols-2 gap-8 mb-12">
-                <!-- Fund Breakdown Chart -->
-                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg">
-                    <h3 class="font-bold text-xl mb-6 flex items-center gap-2">
-                        <i data-lucide="pie-chart" class="w-5 h-5 text-deep-blue"></i>
-                        How Funds Are Used
-                    </h3>
-                    <div class="flex flex-col md:flex-row items-center gap-8">
-                        <div class="relative w-48 h-48 md:w-56 md:h-56">
-                            <svg viewBox="0 0 200 200" class="w-full h-full -rotate-90">
-                                <circle cx="100" cy="100" r="80" fill="none" stroke="#e5e7eb" stroke-width="24"/>
-                                <circle cx="100" cy="100" r="80" fill="none" stroke="#0057B8" stroke-width="24" stroke-dasharray="201 502" stroke-dashoffset="0" class="chart-ring" style="--target:201"/>
-                                <circle cx="100" cy="100" r="80" fill="none" stroke="#F5B400" stroke-width="24" stroke-dasharray="126 502" stroke-dashoffset="-201" class="chart-ring" style="--target:126"/>
-                                <circle cx="100" cy="100" r="80" fill="none" stroke="#00D4FF" stroke-width="24" stroke-dasharray="100 502" stroke-dashoffset="-327" class="chart-ring" style="--target:100"/>
-                                <circle cx="100" cy="100" r="80" fill="none" stroke="#8b5cf6" stroke-width="24" stroke-dasharray="75 502" stroke-dashoffset="-427" class="chart-ring" style="--target:75"/>
-                            </svg>
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <div class="text-center">
-                                    <p class="text-3xl font-bold text-gray-900">100%</p>
-                                    <p class="text-xs text-gray-400">Accounted For</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="space-y-4 flex-1">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-3">
-                                    <span class="w-4 h-4 rounded-full bg-deep-blue"></span>
-                                    <span class="font-medium text-gray-700">Food Programs</span>
-                                </div>
-                                <span class="font-bold text-gray-900">40%</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-3">
-                                    <span class="w-4 h-4 rounded-full bg-gold"></span>
-                                    <span class="font-medium text-gray-700">Shelter & Housing</span>
-                                </div>
-                                <span class="font-bold text-gray-900">25%</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-3">
-                                    <span class="w-4 h-4 rounded-full bg-neon-blue"></span>
-                                    <span class="font-medium text-gray-700">Education</span>
-                                </div>
-                                <span class="font-bold text-gray-900">20%</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-3">
-                                    <span class="w-4 h-4 rounded-full bg-purple-500"></span>
-                                    <span class="font-medium text-gray-700">Emergency Response</span>
-                                </div>
-                                <span class="font-bold text-gray-900">15%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Audit Summary Cards -->
-                <div class="space-y-4">
-                    <div class="bg-white rounded-2xl p-6 shadow-lg">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center">
-                                <i data-lucide="shield-check" class="w-6 h-6 text-green-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-900">Third-Party Audited</h4>
-                                <p class="text-sm text-gray-400">Annual independent audit completed</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 text-sm">All financial records are reviewed by an independent auditor annually. Full reports available on request.</p>
-                    </div>
-                    <div class="bg-white rounded-2xl p-6 shadow-lg">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center">
-                                <i data-lucide="file-text" class="w-6 h-6 text-blue-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-900">Monthly Impact Reports</h4>
-                                <p class="text-sm text-gray-400">Published every 30 days</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 text-sm">Detailed monthly reports showing exact fund allocation, project updates, and measurable outcomes.</p>
-                    </div>
-                    <div class="bg-white rounded-2xl p-6 shadow-lg">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center">
-                                <i data-lucide="link" class="w-6 h-6 text-gold"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-900">Blockchain Verified</h4>
-                                <p class="text-sm text-gray-400">All transactions on-chain</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 text-sm">Every crypto donation is recorded on the blockchain, providing an immutable, public record of all incoming funds.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════ SPONSOR A LIFE ═══════════════════ -->
-    <section id="sponsor" class="py-20 md:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-gold/10 text-gold text-sm font-semibold mb-4">Direct Impact</span>
-                <h2 class="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Sponsor A Life</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto text-lg">Choose your impact level and directly change a life. Every tier provides real, measurable help.</p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-hope-500 font-bold text-sm uppercase tracking-[0.2em] mb-4 block">Our Mission</span>
+                <h2 class="font-display text-4xl lg:text-5xl font-black mb-6">
+                    Why We <span class="text-humanitarian-400">Exist</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+                    Every person affected by crisis deserves immediate relief and a pathway to a better future. Our mission drives every action we take.
+                </p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="sponsor-card group bg-soft-gray rounded-2xl p-8 text-center hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-gold/50 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 right-0 h-1 bg-deep-blue"></div>
-                    <div class="w-16 h-16 rounded-full bg-deep-blue/10 flex items-center justify-center mx-auto mb-6">
-                        <i data-lucide="utensils" class="w-8 h-8 text-deep-blue"></i>
+                <div class="mission-card glass-card p-8 text-center scroll-reveal group">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-hope-500/20 to-hope-600/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="hand-heart" class="w-8 h-8 text-hope-400"></i>
                     </div>
-                    <p class="text-gold font-bold text-4xl mb-1">$10</p>
-                    <p class="text-gray-400 text-sm mb-4">per month</p>
-                    <h3 class="font-bold text-xl mb-3">Meals Tier</h3>
-                    <p class="text-gray-500 mb-6 leading-relaxed">Provides nutritious meals for a child for an entire week. Includes breakfast, lunch, and dinner.</p>
-                    <ul class="text-left space-y-2 mb-8">
-                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 text-deep-blue shrink-0"></i>21 meals per week</li>
-                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 text-deep-blue shrink-0"></i>Nutritional variety</li>
-                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 text-deep-blue shrink-0"></i>Monthly photo update</li>
-                    </ul>
-                    <a href="#donate" class="inline-block w-full py-3 bg-deep-blue text-white font-bold rounded-xl hover:bg-blue-700 transition-colors">Sponsor Meals</a>
+                    <h3 class="text-xl font-bold mb-3">Immediate Relief</h3>
+                    <p class="text-gray-400 leading-relaxed">Rapid response to emergencies with food, water, medical supplies, and shelter for those in desperate need.</p>
                 </div>
-                <div class="sponsor-card group bg-soft-gray rounded-2xl p-8 text-center hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-gold/50 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 right-0 h-1 bg-gold"></div>
-                    <div class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-6">
-                        <i data-lucide="home" class="w-8 h-8 text-gold"></i>
+                <div class="mission-card glass-card p-8 text-center scroll-reveal group" style="transition-delay:0.1s">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-humanitarian-500/20 to-humanitarian-600/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="home" class="w-8 h-8 text-humanitarian-400"></i>
                     </div>
-                    <p class="text-gold font-bold text-4xl mb-1">$50</p>
-                    <p class="text-gray-400 text-sm mb-4">per month</p>
-                    <h3 class="font-bold text-xl mb-3">Family Support</h3>
-                    <p class="text-gray-500 mb-6 leading-relaxed">Comprehensive support for an entire family including food, basic healthcare, and shelter assistance.</p>
-                    <ul class="text-left space-y-2 mb-8">
-                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 text-gold shrink-0"></i>Food + shelter support</li>
-                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 text-gold shrink-0"></i>Basic healthcare access</li>
-                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 text-gold shrink-0"></i>Quarterly impact report</li>
-                    </ul>
-                    <a href="#donate" class="inline-block w-full py-3 bg-gold text-dark-panel font-bold rounded-xl hover:bg-neon-gold transition-colors">Sponsor Family</a>
+                    <h3 class="text-xl font-bold mb-3">Dignified Recovery</h3>
+                    <p class="text-gray-400 leading-relaxed">Supporting communities through shelter reconstruction, education programs, and sustainable livelihood initiatives.</p>
                 </div>
-                <div class="sponsor-card group bg-soft-gray rounded-2xl p-8 text-center hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-gold/50 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 right-0 h-1 bg-red-500"></div>
-                    <div class="w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center mx-auto mb-6">
-                        <i data-lucide="heart-pulse" class="w-8 h-8 text-red-500"></i>
+                <div class="mission-card glass-card p-8 text-center scroll-reveal group" style="transition-delay:0.2s">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-hope-500/20 to-humanitarian-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="sun" class="w-8 h-8 text-hope-400"></i>
                     </div>
-                    <p class="text-gold font-bold text-4xl mb-1">$100</p>
-                    <p class="text-gray-400 text-sm mb-4">per month</p>
-                    <h3 class="font-bold text-xl mb-3">Emergency Aid</h3>
-                    <p class="text-gray-500 mb-6 leading-relaxed">Full emergency package: medical care, temporary housing, food, clothing, and trauma support.</p>
-                    <ul class="text-left space-y-2 mb-8">
-                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 text-red-500 shrink-0"></i>Complete emergency kit</li>
-                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 text-red-500 shrink-0"></i>Medical + trauma care</li>
-                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check-circle" class="w-4 h-4 text-red-500 shrink-0"></i>Direct story connection</li>
-                    </ul>
-                    <a href="#donate" class="inline-block w-full py-3 bg-red-500 text-white font-bold rounded-xl hover:bg-red-600 transition-colors">Sponsor Emergency</a>
+                    <h3 class="text-xl font-bold mb-3">Lasting Hope</h3>
+                    <p class="text-gray-400 leading-relaxed">Building resilient communities through long-term programs that empower individuals to thrive beyond crisis.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════ GET UPDATES ═══════════════════ -->
-    <section id="updates" class="py-20 md:py-28 bg-dark-panel relative overflow-hidden">
-        <div class="absolute inset-0 opacity-5"><div class="grid-pattern"></div></div>
-        <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="inline-block px-4 py-1.5 rounded-full bg-gold/10 text-gold text-sm font-semibold mb-4">Stay Connected</span>
-            <h2 class="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Get Updates</h2>
-            <p class="text-gray-400 mb-10 text-lg">Receive impact reports, emergency alerts, and stories of hope directly to your inbox.</p>
-            <form id="subscribe-form" class="flex flex-col sm:flex-row gap-3 mb-6" onsubmit="handleSubscribe(event)">
-                <input type="email" placeholder="Enter your email address" required class="flex-1 px-5 py-3.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors">
-                <button type="submit" class="px-8 py-3.5 bg-gold text-dark-panel font-bold rounded-xl hover:bg-neon-gold transition-colors shrink-0">Subscribe</button>
-            </form>
-            <div class="flex flex-wrap justify-center gap-4 mt-6">
-                <label class="flex items-center gap-2 text-gray-400 text-sm cursor-pointer hover:text-white transition-colors">
-                    <input type="checkbox" class="w-4 h-4 rounded accent-gold"> Impact Reports
-                </label>
-                <label class="flex items-center gap-2 text-gray-400 text-sm cursor-pointer hover:text-white transition-colors">
-                    <input type="checkbox" class="w-4 h-4 rounded accent-gold"> Emergency Alerts
-                </label>
-                <label class="flex items-center gap-2 text-gray-400 text-sm cursor-pointer hover:text-white transition-colors">
-                    <input type="checkbox" class="w-4 h-4 rounded accent-gold"> SMS/WhatsApp Updates
-                </label>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════ COMMUNITY CONNECT ═══════════════════ -->
-    <section id="community" class="py-20 md:py-28 bg-soft-gray">
+    <!-- Emergency Appeals Section -->
+    <section id="appeals" class="relative py-24 lg:py-32 overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-hope-500 via-humanitarian-500 to-hope-500"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-deep-blue/10 text-deep-blue text-sm font-semibold mb-4">Join Us</span>
-                <h2 class="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Community Connect</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto text-lg">Join our global community. Stay informed, share ideas, and help us do more.</p>
+            <div class="text-center mb-16 scroll-reveal">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-red-500/20 border border-red-500/30 text-red-400 text-sm font-bold mb-6 animate-pulse">
+                    <i data-lucide="alert-triangle" class="w-4 h-4 mr-2"></i>URGENT — Active Emergencies
+                </div>
+                <h2 class="font-display text-4xl lg:text-5xl font-black mb-6">
+                    Emergency <span class="text-hope-400">Appeals</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+                    Communities are in urgent need. Your support can save lives and provide critical relief to families facing unimaginable hardship.
+                </p>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                <a href="#" class="community-card group flex flex-col items-center gap-3 p-6 bg-white rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center group-hover:bg-green-100 transition-colors">
-                        <i data-lucide="message-circle" class="w-7 h-7 text-green-500"></i>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Gaza Appeal -->
+                <div class="glass-card overflow-hidden scroll-reveal group hover:shadow-2xl hover:shadow-hope-500/10 transition-all duration-500">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="http://static.photos/nature/640x360/55" alt="Gaza Humanitarian Relief" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent"></div>
+                        <div class="absolute top-4 left-4 px-3 py-1 bg-red-500 rounded-full text-xs font-bold flex items-center">
+                            <span class="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></span>CRITICAL
+                        </div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-2xl font-bold">Gaza Humanitarian Relief</h3>
+                        </div>
                     </div>
-                    <span class="font-semibold text-gray-900 text-sm">WhatsApp</span>
-                    <span class="px-4 py-1.5 bg-green-50 text-green-600 text-xs font-bold rounded-full group-hover:bg-green-500 group-hover:text-white transition-colors">Join</span>
-                </a>
-                <a href="#" class="community-card group flex flex-col items-center gap-3 p-6 bg-white rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div class="w-14 h-14 rounded-2xl bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-100 transition-colors">
-                        <i data-lucide="gamepad-2" class="w-7 h-7 text-indigo-500"></i>
+                    <div class="p-6">
+                        <p class="text-gray-400 mb-4">Providing emergency food, medical supplies, clean water, and shelter assistance to displaced families in Gaza.</p>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="font-bold text-hope-400">$1.2M raised</span>
+                                <span class="text-gray-400">Goal: $2.5M</span>
+                            </div>
+                            <div class="w-full bg-navy-800 rounded-full h-3 overflow-hidden">
+                                <div class="progress-bar h-full bg-gradient-to-r from-hope-500 to-hope-400 rounded-full" data-width="48" style="width:0%"></div>
+                            </div>
+                        </div>
+                        <a href="#donate" class="inline-flex items-center justify-center w-full py-3 bg-hope-500 hover:bg-hope-600 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-hope-500/20">
+                            <i data-lucide="heart" class="w-4 h-4 mr-2"></i>Donate to Gaza Relief
+                        </a>
                     </div>
-                    <span class="font-semibold text-gray-900 text-sm">Discord</span>
-                    <span class="px-4 py-1.5 bg-indigo-50 text-indigo-600 text-xs font-bold rounded-full group-hover:bg-indigo-500 group-hover:text-white transition-colors">Join</span>
-                </a>
-                <a href="#" class="community-card group flex flex-col items-center gap-3 p-6 bg-white rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-                        <i data-lucide="send" class="w-7 h-7 text-blue-500"></i>
+                </div>
+
+                <!-- Middle East Appeal -->
+                <div class="glass-card overflow-hidden scroll-reveal group hover:shadow-2xl hover:shadow-humanitarian-500/10 transition-all duration-500" style="transition-delay:0.1s">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="http://static.photos/people/640x360/77" alt="Middle East Emergency Response" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent"></div>
+                        <div class="absolute top-4 left-4 px-3 py-1 bg-hope-500 rounded-full text-xs font-bold flex items-center">
+                            <span class="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></span>URGENT
+                        </div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-2xl font-bold">Middle East Emergency</h3>
+                        </div>
                     </div>
-                    <span class="font-semibold text-gray-900 text-sm">Telegram</span>
-                    <span class="px-4 py-1.5 bg-blue-50 text-blue-600 text-xs font-bold rounded-full group-hover:bg-blue-500 group-hover:text-white transition-colors">Join</span>
-                </a>
-                <a href="#" class="community-card group flex flex-col items-center gap-3 p-6 bg-white rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-                        <i data-lucide="facebook" class="w-7 h-7 text-blue-600"></i>
+                    <div class="p-6">
+                        <p class="text-gray-400 mb-4">Emergency response across the Middle East providing medical aid, food parcels, and shelter to displaced communities.</p>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="font-bold text-humanitarian-400">$890K raised</span>
+                                <span class="text-gray-400">Goal: $3M</span>
+                            </div>
+                            <div class="w-full bg-navy-800 rounded-full h-3 overflow-hidden">
+                                <div class="progress-bar h-full bg-gradient-to-r from-humanitarian-500 to-humanitarian-400 rounded-full" data-width="30" style="width:0%"></div>
+                            </div>
+                        </div>
+                        <a href="#donate" class="inline-flex items-center justify-center w-full py-3 bg-humanitarian-500 hover:bg-humanitarian-600 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-humanitarian-500/20">
+                            <i data-lucide="heart" class="w-4 h-4 mr-2"></i>Donate to Middle East
+                        </a>
                     </div>
-                    <span class="font-semibold text-gray-900 text-sm">Facebook</span>
-                    <span class="px-4 py-1.5 bg-blue-50 text-blue-600 text-xs font-bold rounded-full group-hover:bg-blue-600 group-hover:text-white transition-colors">Follow</span>
-                </a>
-                <a href="#" class="community-card group flex flex-col items-center gap-3 p-6 bg-white rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div class="w-14 h-14 rounded-2xl bg-pink-50 flex items-center justify-center group-hover:bg-pink-100 transition-colors">
-                        <i data-lucide="instagram" class="w-7 h-7 text-pink-500"></i>
-                    </div>
-                    <span class="font-semibold text-gray-900 text-sm">Instagram</span>
-                    <span class="px-4 py-1.5 bg-pink-50 text-pink-600 text-xs font-bold rounded-full group-hover:bg-pink-500 group-hover:text-white transition-colors">Follow</span>
-                </a>
-                <a href="#" class="community-card group flex flex-col items-center gap-3 p-6 bg-white rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div class="w-14 h-14 rounded-2xl bg-gray-100 flex items-center justify-center group-hover:bg-gray-200 transition-colors">
-                        <i data-lucide="twitter" class="w-7 h-7 text-gray-800"></i>
-                    </div>
-                    <span class="font-semibold text-gray-900 text-sm">X (Twitter)</span>
-                    <span class="px-4 py-1.5 bg-gray-100 text-gray-700 text-xs font-bold rounded-full group-hover:bg-gray-800 group-hover:text-white transition-colors">Follow</span>
-                </a>
-                <a href="#" class="community-card group flex flex-col items-center gap-3 p-6 bg-white rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div class="w-14 h-14 rounded-2xl bg-red-50 flex items-center justify-center group-hover:bg-red-100 transition-colors">
-                        <i data-lucide="youtube" class="w-7 h-7 text-red-500"></i>
-                    </div>
-                    <span class="font-semibold text-gray-900 text-sm">YouTube</span>
-                    <span class="px-4 py-1.5 bg-red-50 text-red-600 text-xs font-bold rounded-full group-hover:bg-red-500 group-hover:text-white transition-colors">Subscribe</span>
-                </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════ CONTACT SECTION ═══════════════════ -->
-    <section id="contact" class="py-20 md:py-28 bg-white">
+    <!-- Programs / Projects Section -->
+    <section id="projects" class="relative py-24 lg:py-32 bg-navy-950 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-deep-blue/10 text-deep-blue text-sm font-semibold mb-4">Reach Out</span>
-                <h2 class="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Contact Us</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto text-lg">Questions, partnerships, or media inquiries — we'd love to hear from you.</p>
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-hope-500 font-bold text-sm uppercase tracking-[0.2em] mb-4 block">Our Programs</span>
+                <h2 class="font-display text-4xl lg:text-5xl font-black mb-6">
+                    What We <span class="text-humanitarian-400">Do</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+                    Comprehensive humanitarian programs designed to save lives, restore dignity, and build resilient communities.
+                </p>
             </div>
-            <div class="grid lg:grid-cols-2 gap-12">
-                <form id="contact-form" class="space-y-5" onsubmit="handleContact(event)">
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Emergency Relief -->
+                <div class="program-card glass-card p-6 scroll-reveal group hover:bg-white/15 transition-all duration-300">
+                    <div class="w-14 h-14 mb-5 rounded-xl bg-gradient-to-br from-red-500/20 to-red-600/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i data-lucide="siren" class="w-7 h-7 text-red-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Emergency Relief</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Rapid deployment of food, water, and essential supplies to crisis zones within 24-48 hours.</p>
+                </div>
+
+                <!-- Medical Support -->
+                <div class="program-card glass-card p-6 scroll-reveal group hover:bg-white/15 transition-all duration-300" style="transition-delay:0.1s">
+                    <div class="w-14 h-14 mb-5 rounded-xl bg-gradient-to-br from-green-500/20 to-green-600/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i data-lucide="stethoscope" class="w-7 h-7 text-green-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Medical Support</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Mobile clinics, medical supplies, and healthcare services for communities with limited access.</p>
+                </div>
+
+                <!-- Shelter Assistance -->
+                <div class="program-card glass-card p-6 scroll-reveal group hover:bg-white/15 transition-all duration-300" style="transition-delay:0.2s">
+                    <div class="w-14 h-14 mb-5 rounded-xl bg-gradient-to-br from-humanitarian-500/20 to-humanitarian-600/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i data-lucide="home" class="w-7 h-7 text-humanitarian-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Shelter Assistance</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Temporary shelters and permanent housing reconstruction for displaced families.</p>
+                </div>
+
+                <!-- Education Programs -->
+                <div class="program-card glass-card p-6 scroll-reveal group hover:bg-white/15 transition-all duration-300" style="transition-delay:0.3s">
+                    <div class="w-14 h-14 mb-5 rounded-xl bg-gradient-to-br from-hope-500/20 to-hope-600/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i data-lucide="graduation-cap" class="w-7 h-7 text-hope-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Education Programs</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Schools, learning materials, and scholarships for children in crisis-affected communities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stories of Hope - Video Section -->
+    <section id="stories" class="relative py-24 lg:py-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-hope-500 font-bold text-sm uppercase tracking-[0.2em] mb-4 block">Witness The Impact</span>
+                <h2 class="font-display text-4xl lg:text-5xl font-black mb-6">
+                    Stories of <span class="text-hope-400">Hope</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+                    Real stories from the communities we serve — witness the resilience and hope that your support makes possible.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+                <!-- 16:9 Video -->
+                <div class="scroll-reveal">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-video bg-navy-800">
+                        <video controls preload="none" poster="http://static.photos/people/1024x576/33" class="w-full h-full object-cover">
+                            <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none" id="videoOverlay1">
+                            <div class="w-20 h-20 rounded-full bg-hope-500/90 flex items-center justify-center shadow-2xl cursor-pointer" onclick="this.parentElement.style.display='none'; this.closest('.aspect-video').querySelector('video').play();">
+                                <i data-lucide="play" class="w-8 h-8 text-white ml-1"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="mt-4 text-xl font-bold">On The Frontlines: Delivering Hope</h3>
+                    <p class="text-gray-400 text-sm mt-1">Documentary — Humanitarian Relief Operations 2024</p>
+                </div>
+
+                <!-- 9:16 Vertical Video -->
+                <div class="scroll-reveal flex flex-col items-center" style="transition-delay:0.15s">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[9/16] max-h-[500px] bg-navy-800">
+                        <video controls preload="none" poster="http://static.photos/people/320x240/99" class="w-full h-full object-cover">
+                            <source src="https://videos.pexels.com/video-files/1526909/1526909-hd_1080_1920_30fps.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none" id="videoOverlay2">
+                            <div class="w-16 h-16 rounded-full bg-humanitarian-500/90 flex items-center justify-center shadow-2xl cursor-pointer" onclick="this.parentElement.style.display='none'; this.closest('.aspect-\\[9\\/16\\]').querySelector('video').play();">
+                                <i data-lucide="play" class="w-6 h-6 text-white ml-1"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="mt-4 text-lg font-bold text-center">A Day in the Field</h3>
+                    <p class="text-gray-400 text-sm mt-1 text-center">Short Film — Volunteers' Perspective</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="relative py-24 lg:py-32 bg-navy-950 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-hope-500 font-bold text-sm uppercase tracking-[0.2em] mb-4 block">Gallery</span>
+                <h2 class="font-display text-4xl lg:text-5xl font-black mb-6">
+                    Moments of <span class="text-humanitarian-400">Impact</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+                    A glimpse into our humanitarian work — every image tells a story of compassion, resilience, and hope.
+                </p>
+            </div>
+
+            <div class="gallery-grid scroll-reveal">
+                <!-- Image 1: Food Distribution -->
+                <div class="gallery-item group" data-caption="Food Distribution — Providing meals to families in crisis zones">
+                    <img src="http://static.photos/food/640x360/10" alt="Food distribution to families in need" class="w-full h-full object-cover" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i data-lucide="utensils" class="w-6 h-6 text-hope-400 mb-2"></i>
+                        <p class="text-sm font-bold">Food Distribution</p>
+                    </div>
+                </div>
+
+                <!-- Image 2: Medical Assistance -->
+                <div class="gallery-item group" data-caption="Medical Assistance — Mobile clinics saving lives">
+                    <img src="http://static.photos/medical/640x360/20" alt="Medical assistance and healthcare" class="w-full h-full object-cover" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i data-lucide="heart-pulse" class="w-6 h-6 text-red-400 mb-2"></i>
+                        <p class="text-sm font-bold">Medical Assistance</p>
+                    </div>
+                </div>
+
+                <!-- Image 3: Emergency Relief Supplies -->
+                <div class="gallery-item group" data-caption="Emergency Relief — Critical supplies delivered rapidly">
+                    <img src="http://static.photos/indoor/640x360/30" alt="Emergency relief supplies distribution" class="w-full h-full object-cover" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i data-lucide="package" class="w-6 h-6 text-hope-400 mb-2"></i>
+                        <p class="text-sm font-bold">Emergency Relief Supplies</p>
+                    </div>
+                </div>
+
+                <!-- Image 4: Children Education -->
+                <div class="gallery-item group" data-caption="Education Support — Children learning and growing">
+                    <img src="http://static.photos/education/640x360/40" alt="Children receiving education support" class="w-full h-full object-cover" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i data-lucide="book-open" class="w-6 h-6 text-humanitarian-400 mb-2"></i>
+                        <p class="text-sm font-bold">Education Support</p>
+                    </div>
+                </div>
+
+                <!-- Image 5: Shelter Assistance -->
+                <div class="gallery-item group" data-caption="Shelter Assistance — Safe homes for displaced families">
+                    <img src="http://static.photos/construction/640x360/50" alt="Shelter assistance for displaced families" class="w-full h-full object-cover" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i data-lucide="home" class="w-6 h-6 text-humanitarian-400 mb-2"></i>
+                        <p class="text-sm font-bold">Shelter Assistance</p>
+                    </div>
+                </div>
+
+                <!-- Image 6: Volunteers Helping Families -->
+                <div class="gallery-item group" data-caption="Volunteers — Dedicated people helping families">
+                    <img src="http://static.photos/people/640x360/60" alt="Volunteers helping families" class="w-full h-full object-cover" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i data-lucide="hand-heart" class="w-6 h-6 text-hope-400 mb-2"></i>
+                        <p class="text-sm font-bold">Volunteers Helping Families</p>
+                    </div>
+                </div>
+
+                <!-- Image 7: Community Rebuilding -->
+                <div class="gallery-item group" data-caption="Rebuilding — Communities coming together">
+                    <img src="http://static.photos/outdoor/640x360/70" alt="Community rebuilding efforts" class="w-full h-full object-cover" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i data-lucide="hammer" class="w-6 h-6 text-hope-400 mb-2"></i>
+                        <p class="text-sm font-bold">Community Rebuilding</p>
+                    </div>
+                </div>
+
+                <!-- Image 8: Clean Water Projects -->
+                <div class="gallery-item group" data-caption="Clean Water — Bringing safe water to communities">
+                    <img src="http://static.photos/nature/640x360/80" alt="Clean water projects" class="w-full h-full object-cover" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i data-lucide="droplets" class="w-6 h-6 text-blue-400 mb-2"></i>
+                        <p class="text-sm font-bold">Clean Water Projects</p>
+                    </div>
+                </div>
+
+                <!-- Image 9: Volunteer Team Group Photo -->
+                <div class="gallery-item group" data-caption="Our Team — Dedicated volunteers worldwide">
+                    <img src="http://static.photos/workspace/640x360/90" alt="Volunteer team group photo" class="w-full h-full object-cover" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i data-lucide="users" class="w-6 h-6 text-humanitarian-400 mb-2"></i>
+                        <p class="text-sm font-bold">Our Volunteer Team</p>
+                    </div>
+                </div>
+
+                <!-- Image 10: Hopeful Family Receiving Aid -->
+                <div class="gallery-item group" data-caption="Hope — Family receiving aid with gratitude">
+                    <img src="http://static.photos/people/640x360/100" alt="Hopeful family receiving aid" class="w-full h-full object-cover" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i data-lucide="sun" class="w-6 h-6 text-hope-400 mb-2"></i>
+                        <p class="text-sm font-bold">Hopeful Family Receiving Aid</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="fixed inset-0 z-[200] bg-black/95 backdrop-blur-xl flex items-center justify-center hidden" role="dialog" aria-modal="true">
+            <button onclick="closeLightbox()" class="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors z-10" aria-label="Close lightbox">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <img id="lightboxImg" src="" alt="" class="max-w-[90vw] max-h-[85vh] object-contain rounded-lg">
+            <p id="lightboxCaption" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white text-center text-sm font-medium bg-navy-900/80 px-6 py-3 rounded-full backdrop-blur-md"></p>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donate" class="relative py-24 lg:py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-navy-900 via-navy-900 to-navy-950"></div>
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-hope-500 via-humanitarian-500 to-hope-500"></div>
+        <div class="absolute top-20 right-0 w-72 h-72 bg-hope-500/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 left-0 w-96 h-96 bg-humanitarian-500/5 rounded-full blur-3xl"></div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 scroll-reveal">
+                <span class="text-hope-500 font-bold text-sm uppercase tracking-[0.2em] mb-4 block">Make a Difference</span>
+                <h2 class="font-display text-4xl lg:text-5xl font-black mb-6">
+                    Donate <span class="text-hope-400">Today</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+                    Every donation saves lives. Choose an amount and payment method — 100% of your contribution goes directly to those in need.
+                </p>
+            </div>
+
+            <div class="glass-card p-6 sm:p-8 lg:p-10 scroll-reveal">
+                <!-- Donation Amount Selector -->
+                <div class="mb-8">
+                    <h3 class="text-lg font-bold mb-4">Select Donation Amount</h3>
+                    <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 mb-4">
+                        <button class="donation-amount py-3 px-4 rounded-xl border-2 border-white/10 hover:border-hope-500 bg-white/5 hover:bg-hope-500/10 font-bold transition-all duration-200 text-center" data-amount="25">$25</button>
+                        <button class="donation-amount py-3 px-4 rounded-xl border-2 border-white/10 hover:border-hope-500 bg-white/5 hover:bg-hope-500/10 font-bold transition-all duration-200 text-center" data-amount="50">$50</button>
+                        <button class="donation-amount py-3 px-4 rounded-xl border-2 border-hope-500 bg-hope-500/20 font-bold transition-all duration-200 text-center active-amount" data-amount="100">$100</button>
+                        <button class="donation-amount py-3 px-4 rounded-xl border-2 border-white/10 hover:border-hope-500 bg-white/5 hover:bg-hope-500/10 font-bold transition-all duration-200 text-center" data-amount="250">$250</button>
+                        <button class="donation-amount py-3 px-4 rounded-xl border-2 border-white/10 hover:border-hope-500 bg-white/5 hover:bg-hope-500/10 font-bold transition-all duration-200 text-center" data-amount="500">$500</button>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-gray-400 text-sm font-medium">Custom:</span>
+                        <div class="relative flex-1 max-w-xs">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-bold">$</span>
+                            <input type="number" id="customAmount" min="1" placeholder="Enter amount" class="w-full pl-8 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recurring Option -->
+                <div class="mb-8 p-4 rounded-xl bg-white/5 border border-white/10">
+                    <label class="flex items-center gap-3 cursor-pointer">
+                        <div class="relative">
+                            <input type="checkbox" id="recurring" class="sr-only peer">
+                            <div class="w-11 h-6 bg-navy-800 peer-checked:bg-hope-500 rounded-full transition-colors"></div>
+                            <div class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform peer-checked:translate-x-5"></div>
+                        </div>
+                        <div>
+                            <span class="font-bold text-sm">Make this a monthly donation</span>
+                            <p class="text-gray-400 text-xs mt-0.5">Recurring donations provide sustained support for communities</p>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Payment Method Tabs -->
+                <div class="mb-8">
+                    <h3 class="text-lg font-bold mb-4">Payment Method</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <button class="payment-tab active-tab px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-200" data-tab="card">
+                            <i data-lucide="credit-card" class="w-4 h-4 inline mr-1.5"></i>Pay with Card
+                        </button>
+                        <button class="payment-tab px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-200" data-tab="crypto">
+                            <i data-lucide="bitcoin" class="w-4 h-4 inline mr-1.5"></i>Cryptocurrency
+                        </button>
+                        <button class="payment-tab px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-200" data-tab="airtm">
+                            <i data-lucide="wallet" class="w-4 h-4 inline mr-1.5"></i>Airtm
+                        </button>
+                    </div>
+
+                    <!-- Card Payment (Flutterwave) -->
+                    <div id="tab-card" class="payment-content">
+                        <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="text-xs text-gray-400">Powered by</span>
+                                <span class="font-bold text-hope-400">Flutterwave</span>
+                            </div>
+                            <div class="flex gap-3 mb-6">
+                                <div class="px-3 py-2 bg-white/10 rounded-lg text-xs font-bold">VISA</div>
+                                <div class="px-3 py-2 bg-white/10 rounded-lg text-xs font-bold">Mastercard</div>
+                                <div class="px-3 py-2 bg-white/10 rounded-lg text-xs font-bold">Verve</div>
+                                <div class="px-3 py-2 bg-white/10 rounded-lg text-xs font-bold">AMEX</div>
+                            </div>
+                            <form id="cardForm" class="space-y-4" onsubmit="handleCardDonation(event)">
+                                <div>
+                                    <label class="text-sm font-medium text-gray-300 mb-1 block">Card Number</label>
+                                    <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all" required>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="text-sm font-medium text-gray-300 mb-1 block">Expiry Date</label>
+                                        <input type="text" placeholder="MM/YY" maxlength="5" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all" required>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-medium text-gray-300 mb-1 block">CVV</label>
+                                        <input type="text" placeholder="123" maxlength="4" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all" required>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="text-sm font-medium text-gray-300 mb-1 block">Cardholder Name</label>
+                                    <input type="text" placeholder="Full name on card" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all" required>
+                                </div>
+                                <div>
+                                    <label class="text-sm font-medium text-gray-300 mb-1 block">Email Address</label>
+                                    <input type="email" placeholder="your@email.com" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all" required>
+                                </div>
+                                <button type="submit" class="w-full py-4 bg-hope-500 hover:bg-hope-600 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-hope-500/20 text-lg">
+                                    <i data-lucide="lock" class="w-4 h-4 inline mr-2"></i>Donate <span id="cardAmount">$100</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Crypto Payment -->
+                    <div id="tab-crypto" class="payment-content hidden">
+                        <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                            <p class="text-gray-400 text-sm mb-6">Send cryptocurrency to the following wallet address. Your donation will be confirmed within the network.</p>
+                            <div class="space-y-5">
+                                <div class="crypto-wallet p-4 rounded-xl bg-white/5 border border-white/10">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="font-bold flex items-center"><span class="text-orange-400 mr-2">₿</span>Bitcoin (BTC)</span>
+                                        <button onclick="copyAddress('bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
+                                    </div>
+                                    <code class="text-xs text-humanitarian-300 break-all">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</code>
+                                </div>
+                                <div class="crypto-wallet p-4 rounded-xl bg-white/5 border border-white/10">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="font-bold flex items-center"><span class="text-blue-400 mr-2">Ξ</span>Ethereum (ETH)</span>
+                                        <button onclick="copyAddress('0x71C7656EC7ab88b098defB751B7401B5f6d8976F')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
+                                    </div>
+                                    <code class="text-xs text-humanitarian-300 break-all">0x71C7656EC7ab88b098defB751B7401B5f6d8976F</code>
+                                </div>
+                                <div class="crypto-wallet p-4 rounded-xl bg-white/5 border border-white/10">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="font-bold flex items-center"><span class="text-green-400 mr-2">₮</span>USDT (TRC20)</span>
+                                        <button onclick="copyAddress('TN2YqRhkJo8K5b3gDfV3M4TLb3F6pRg4mK')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
+                                    </div>
+                                    <code class="text-xs text-humanitarian-300 break-all">TN2YqRhkJo8K5b3gDfV3M4TLb3F6pRg4mK</code>
+                                </div>
+                                <div class="crypto-wallet p-4 rounded-xl bg-white/5 border border-white/10">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="font-bold flex items-center"><span class="text-blue-300 mr-2">₮</span>USDT (ERC20)</span>
+                                        <button onclick="copyAddress('0x71C7656EC7ab88b098defB751B7401B5f6d8976F')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
+                                    </div>
+                                    <code class="text-xs text-humanitarian-300 break-all">0x71C7656EC7ab88b098defB751B7401B5f6d8976F</code>
+                                </div>
+                                <div class="crypto-wallet p-4 rounded-xl bg-white/5 border border-white/10">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="font-bold flex items-center"><span class="text-yellow-400 mr-2">◈</span>BNB</span>
+                                        <button onclick="copyAddress('bnb1grpf0955h0ykzq3ar5nmum7y6gdfl6lxfn46h2')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
+                                    </div>
+                                    <code class="text-xs text-humanitarian-300 break-all">bnb1grpf0955h0ykzq3ar5nmum7y6gdfl6lxfn46h2</code>
+                                </div>
+                                <div class="crypto-wallet p-4 rounded-xl bg-white/5 border border-white/10">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="font-bold flex items-center"><span class="text-purple-400 mr-2">◎</span>Solana (SOL)</span>
+                                        <button onclick="copyAddress('7EcDhSYGxXyscszYEp35KHN8vvw3svAuLKTzXwCFLtV')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
+                                    </div>
+                                    <code class="text-xs text-humanitarian-300 break-all">7EcDhSYGxXyscszYEp35KHN8vvw3svAuLKTzXwCFLtV</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Airtm Payment -->
+                    <div id="tab-airtm" class="payment-content hidden">
+                        <div class="p-6 rounded-xl bg-white/5 border border-white/10 text-center">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
+                                <i data-lucide="wallet" class="w-8 h-8 text-blue-400"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Donate via Airtm</h4>
+                            <p class="text-gray-400 text-sm mb-6">Support us through Airtm — a fast and secure way to send funds globally.</p>
+                            <a href="https://www.airtm.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20">
+                                <i data-lucide="external-link" class="w-4 h-4 mr-2"></i>Pay with Airtm
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Badge -->
+                <div class="flex items-center justify-center gap-4 pt-6 border-t border-white/10">
+                    <div class="flex items-center gap-2 text-gray-400 text-sm">
+                        <i data-lucide="shield-check" class="w-5 h-5 text-green-400"></i>
+                        <span>SSL Secured</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-400 text-sm">
+                        <i data-lucide="lock" class="w-5 h-5 text-green-400"></i>
+                        <span>256-bit Encryption</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-400 text-sm">
+                        <i data-lucide="badge-check" class="w-5 h-5 text-green-400"></i>
+                        <span>Verified NGO</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparency Section -->
+    <section id="transparency" class="relative py-24 lg:py-32 bg-navy-950 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-hope-500 font-bold text-sm uppercase tracking-[0.2em] mb-4 block">Transparency</span>
+                <h2 class="font-display text-4xl lg:text-5xl font-black mb-6">
+                    Full <span class="text-humanitarian-400">Accountability</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+                    We believe in complete transparency. Every donation is tracked, every project is documented, and every impact is measured.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-card p-6 text-center scroll-reveal group hover:bg-white/15 transition-all duration-300">
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-humanitarian-500/20 to-humanitarian-600/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i data-lucide="file-text" class="w-7 h-7 text-humanitarian-400"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Financial Reports</h3>
+                    <p class="text-gray-400 text-sm">Annual audited financial statements publicly available</p>
+                    <a href="#" class="inline-flex items-center text-hope-400 hover:text-hope-300 text-sm font-medium mt-3 transition-colors">View Reports <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i></a>
+                </div>
+                <div class="glass-card p-6 text-center scroll-reveal group hover:bg-white/15 transition-all duration-300" style="transition-delay:0.1s">
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-hope-500/20 to-hope-600/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i data-lucide="search" class="w-7 h-7 text-hope-400"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Donation Tracking</h3>
+                    <p class="text-gray-400 text-sm">Track exactly where your donation goes and who it helps</p>
+                    <a href="#" class="inline-flex items-center text-hope-400 hover:text-hope-300 text-sm font-medium mt-3 transition-colors">Track Donation <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i></a>
+                </div>
+                <div class="glass-card p-6 text-center scroll-reveal group hover:bg-white/15 transition-all duration-300" style="transition-delay:0.2s">
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-green-500/20 to-green-600/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i data-lucide="clipboard-check" class="w-7 h-7 text-green-400"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Project Updates</h3>
+                    <p class="text-gray-400 text-sm">Real-time updates on active humanitarian projects</p>
+                    <a href="#" class="inline-flex items-center text-hope-400 hover:text-hope-300 text-sm font-medium mt-3 transition-colors">View Updates <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i></a>
+                </div>
+                <div class="glass-card p-6 text-center scroll-reveal group hover:bg-white/15 transition-all duration-300" style="transition-delay:0.3s">
+                    <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-600/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i data-lucide="bar-chart-3" class="w-7 h-7 text-purple-400"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Impact Reports</h3>
+                    <p class="text-gray-400 text-sm">Measurable outcomes and community impact data</p>
+                    <a href="#" class="inline-flex items-center text-hope-400 hover:text-hope-300 text-sm font-medium mt-3 transition-colors">See Impact <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Section -->
+    <section id="volunteer" class="relative py-24 lg:py-32 overflow-hidden">
+        <div class="absolute top-20 right-0 w-72 h-72 bg-humanitarian-500/5 rounded-full blur-3xl"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 scroll-reveal">
+                <span class="text-hope-500 font-bold text-sm uppercase tracking-[0.2em] mb-4 block">Join Our Team</span>
+                <h2 class="font-display text-4xl lg:text-5xl font-black mb-6">
+                    Become a <span class="text-humanitarian-400">Volunteer</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+                    Your time and skills can save lives. Join our global network of volunteers making a real difference on the ground.
+                </p>
+            </div>
+
+            <div class="glass-card p-6 sm:p-8 lg:p-10 scroll-reveal">
+                <form id="volunteerForm" onsubmit="handleVolunteerSubmit(event)" class="space-y-5">
                     <div class="grid sm:grid-cols-2 gap-5">
                         <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
-                            <input type="text" required placeholder="Your name" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-deep-blue focus:ring-1 focus:ring-deep-blue transition-colors">
+                            <label class="text-sm font-medium text-gray-300 mb-1.5 block">Full Name *</label>
+                            <input type="text" name="fullName" placeholder="Your full name" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-humanitarian-500 focus:ring-1 focus:ring-humanitarian-500 transition-all" required>
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
-                            <input type="email" required placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-deep-blue focus:ring-1 focus:ring-deep-blue transition-colors">
+                            <label class="text-sm font-medium text-gray-300 mb-1.5 block">Email Address *</label>
+                            <input type="email" name="email" placeholder="your@email.com" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-humanitarian-500 focus:ring-1 focus:ring-humanitarian-500 transition-all" required>
+                        </div>
+                        <div>
+                            <label class="text-sm font-medium text-gray-300 mb-1.5 block">Country *</label>
+                            <select name="country" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-humanitarian-500 focus:ring-1 focus:ring-humanitarian-500 transition-all appearance-none" required>
+                                <option value="" class="bg-navy-900">Select your country</option>
+                                <option value="AF" class="bg-navy-900">Afghanistan</option>
+                                <option value="US" class="bg-navy-900">United States</option>
+                                <option value="GB" class="bg-navy-900">United Kingdom</option>
+                                <option value="CA" class="bg-navy-900">Canada</option>
+                                <option value="AU" class="bg-navy-900">Australia</option>
+                                <option value="DE" class="bg-navy-900">Germany</option>
+                                <option value="FR" class="bg-navy-900">France</option>
+                                <option value="NG" class="bg-navy-900">Nigeria</option>
+                                <option value="KE" class="bg-navy-900">Kenya</option>
+                                <option value="PK" class="bg-navy-900">Pakistan</option>
+                                <option value="TR" class="bg-navy-900">Turkey</option>
+                                <option value="AE" class="bg-navy-900">UAE</option>
+                                <option value="SA" class="bg-navy-900">Saudi Arabia</option>
+                                <option value="MY" class="bg-navy-900">Malaysia</option>
+                                <option value="other" class="bg-navy-900">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-sm font-medium text-gray-300 mb-1.5 block">Skills *</label>
+                            <select name="skills" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-humanitarian-500 focus:ring-1 focus:ring-humanitarian-500 transition-all appearance-none" required>
+                                <option value="" class="bg-navy-900">Select your skill area</option>
+                                <option value="medical" class="bg-navy-900">Medical / Healthcare</option>
+                                <option value="education" class="bg-navy-900">Education / Teaching</option>
+                                <option value="logistics" class="bg-navy-900">Logistics / Supply Chain</option>
+                                <option value="construction" class="bg-navy-900">Construction / Engineering</option>
+                                <option value="communications" class="bg-navy-900">Communications / Media</option>
+                                <option value="fundraising" class="bg-navy-900">Fundraising / Grant Writing</option>
+                                <option value="tech" class="bg-navy-900">Technology / IT</option>
+                                <option value="translation" class="bg-navy-900">Translation / Languages</option>
+                                <option value="other" class="bg-navy-900">Other</option>
+                            </select>
                         </div>
                     </div>
                     <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
-                        <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-deep-blue focus:ring-1 focus:ring-deep-blue transition-colors text-gray-600">
-                            <option>General Inquiry</option>
-                            <option>Partnership Proposal</option>
-                            <option>Media / Press</option>
-                            <option>Donation Support</option>
-                            <option>Volunteer Application</option>
-                        </select>
+                        <label class="text-sm font-medium text-gray-300 mb-1.5 block">Availability</label>
+                        <div class="flex flex-wrap gap-3">
+                            <label class="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg cursor-pointer hover:border-humanitarian-500 transition-colors">
+                                <input type="checkbox" name="availability" value="full-time" class="accent-humanitarian-500"> <span class="text-sm">Full-time</span>
+                            </label>
+                            <label class="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg cursor-pointer hover:border-humanitarian-500 transition-colors">
+                                <input type="checkbox" name="availability" value="part-time" class="accent-humanitarian-500"> <span class="text-sm">Part-time</span>
+                            </label>
+                            <label class="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg cursor-pointer hover:border-humanitarian-500 transition-colors">
+                                <input type="checkbox" name="availability" value="weekends" class="accent-humanitarian-500"> <span class="text-sm">Weekends</span>
+                            </label>
+                            <label class="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg cursor-pointer hover:border-humanitarian-500 transition-colors">
+                                <input type="checkbox" name="availability" value="remote" class="accent-humanitarian-500"> <span class="text-sm">Remote</span>
+                            </label>
+                            <label class="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg cursor-pointer hover:border-humanitarian-500 transition-colors">
+                                <input type="checkbox" name="availability" value="on-site" class="accent-humanitarian-500"> <span class="text-sm">On-site</span>
+                            </label>
+                        </div>
                     </div>
                     <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
-                        <textarea rows="5" required placeholder="How can we help?" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-deep-blue focus:ring-1 focus:ring-deep-blue transition-colors resize-none"></textarea>
+                        <label class="text-sm font-medium text-gray-300 mb-1.5 block">Message</label>
+                        <textarea name="message" rows="4" placeholder="Tell us about your motivation to volunteer..." class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-humanitarian-500 focus:ring-1 focus:ring-humanitarian-500 transition-all resize-none"></textarea>
                     </div>
-                    <button type="submit" class="px-8 py-3.5 bg-deep-blue text-white font-bold rounded-xl hover:bg-blue-700 transition-colors">Send Message</button>
+                    <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-humanitarian-500 hover:bg-humanitarian-600 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-humanitarian-500/20 text-lg">
+                        <i data-lucide="send" class="w-4 h-4 inline mr-2"></i>Submit Application
+                    </button>
                 </form>
-                <div class="space-y-6">
-                    <div class="flex items-start gap-4 p-5 bg-soft-gray rounded-xl">
-                        <div class="w-12 h-12 rounded-xl bg-deep-blue/10 flex items-center justify-center shrink-0">
-                            <i data-lucide="mail" class="w-6 h-6 text-deep-blue"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900 mb-1">Email Support</h4>
-                            <p class="text-gray-500 text-sm">contact@beyondthestreets.org</p>
-                        </div>
+                <div id="volunteerSuccess" class="hidden text-center py-10">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-green-500/20 flex items-center justify-center">
+                        <i data-lucide="check-circle" class="w-10 h-10 text-green-400"></i>
                     </div>
-                    <div class="flex items-start gap-4 p-5 bg-soft-gray rounded-xl">
-                        <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center shrink-0">
-                            <i data-lucide="map-pin" class="w-6 h-6 text-gold"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900 mb-1">Global Operations</h4>
-                            <p class="text-gray-500 text-sm">Coordinating from multiple hubs worldwide</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4 p-5 bg-soft-gray rounded-xl">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0">
-                            <i data-lucide="clock" class="w-6 h-6 text-emerald-500"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900 mb-1">Response Time</h4>
-                            <p class="text-gray-500 text-sm">We typically respond within 24 hours</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4 p-5 bg-soft-gray rounded-xl">
-                        <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center shrink-0">
-                            <i data-lucide="phone" class="w-6 h-6 text-red-500"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900 mb-1">Emergency Line</h4>
-                            <p class="text-gray-500 text-sm">Available 24/7 for urgent aid coordination</p>
-                        </div>
-                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Application Received!</h3>
+                    <p class="text-gray-400">Thank you for your willingness to help. Our team will review your application and get back to you soon.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════ FOOTER ═══════════════════ -->
-    <footer class="bg-dark-panel py-16 border-t border-white/5">
+    <!-- News & Updates Section -->
+    <section id="news" class="relative py-24 lg:py-32 bg-navy-950 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
-                <div class="lg:col-span-2">
-                    <div class="flex items-center gap-3 mb-4">
-                        <svg class="w-10 h-10" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M60 105 L60 75 L45 90 L60 105 L75 90 Z" fill="#0057B8" opacity="0.9"/>
-                            <path d="M15 55 Q15 35 30 30 Q25 45 30 55 Q35 50 40 48 L40 65 Q25 65 15 55Z" fill="#F5B400"/>
-                            <path d="M105 55 Q105 35 90 30 Q95 45 90 55 Q85 50 80 48 L80 65 Q95 65 105 55Z" fill="#F5B400"/>
-                            <path d="M25 60 Q25 38 38 28 Q30 42 35 58" stroke="#F5B400" stroke-width="3" fill="none" stroke-linecap="round"/>
-                            <path d="M95 60 Q95 38 82 28 Q90 42 85 58" stroke="#F5B400" stroke-width="3" fill="none" stroke-linecap="round"/>
-                        </svg>
-                        <span class="text-lg font-bold text-white">Beyond The Streets</span>
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-hope-500 font-bold text-sm uppercase tracking-[0.2em] mb-4 block">Latest Updates</span>
+                <h2 class="font-display text-4xl lg:text-5xl font-black mb-6">
+                    News & <span class="text-humanitarian-400">Updates</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+                    Stay informed about our relief missions, volunteer stories, and the impact your support is making around the world.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- News 1 -->
+                <article class="glass-card overflow-hidden scroll-reveal group hover:shadow-xl transition-all duration-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="http://static.photos/nature/640x360/11" alt="Humanitarian relief mission update" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <div class="absolute top-3 left-3 px-3 py-1 bg-hope-500 rounded-full text-xs font-bold">Relief Mission</div>
                     </div>
-                    <p class="text-gray-400 leading-relaxed mb-4 max-w-sm">Technology. Transparency. Humanity. Global humanitarian action powered by compassion and innovation.</p>
+                    <div class="p-5">
+                        <time class="text-xs text-gray-500 font-medium" datetime="2024-12-15">December 15, 2024</time>
+                        <h3 class="text-lg font-bold mt-2 mb-2 group-hover:text-hope-400 transition-colors">Emergency Food Aid Reaches 5,000 Families in Gaza</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Our rapid response team has successfully delivered food parcels to over 5,000 displaced families in the Gaza Strip this week...</p>
+                        <a href="#" class="inline-flex items-center text-hope-400 hover:text-hope-300 text-sm font-medium mt-3 transition-colors">Read More <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i></a>
+                    </div>
+                </article>
+
+                <!-- News 2 -->
+                <article class="glass-card overflow-hidden scroll-reveal group hover:shadow-xl transition-all duration-300" style="transition-delay:0.1s">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="http://static.photos/medical/640x360/22" alt="Medical support field report" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <div class="absolute top-3 left-3 px-3 py-1 bg-green-500 rounded-full text-xs font-bold">Field Report</div>
+                    </div>
+                    <div class="p-5">
+                        <time class="text-xs text-gray-500 font-medium" datetime="2024-12-10">December 10, 2024</time>
+                        <h3 class="text-lg font-bold mt-2 mb-2 group-hover:text-hope-400 transition-colors">Mobile Clinics Treat 1,200 Patients in Refugee Camps</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Our medical volunteers have provided critical healthcare services to over 1,200 patients across three refugee camps...</p>
+                        <a href="#" class="inline-flex items-center text-hope-400 hover:text-hope-300 text-sm font-medium mt-3 transition-colors">Read More <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i></a>
+                    </div>
+                </article>
+
+                <!-- News 3 -->
+                <article class="glass-card overflow-hidden scroll-reveal group hover:shadow-xl transition-all duration-300" style="transition-delay:0.2s">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="http://static.photos/people/640x360/33" alt="Volunteer story" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <div class="absolute top-3 left-3 px-3 py-1 bg-humanitarian-500 rounded-full text-xs font-bold">Volunteer Story</div>
+                    </div>
+                    <div class="p-5">
+                        <time class="text-xs text-gray-500 font-medium" datetime="2024-12-05">December 5, 2024</time>
+                        <h3 class="text-lg font-bold mt-2 mb-2 group-hover:text-hope-400 transition-colors">Meet Sarah: A Volunteer's Journey of Hope</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Sarah left her comfortable life to join our volunteer team on the frontlines. Her story will inspire you to take action...</p>
+                        <a href="#" class="inline-flex items-center text-hope-400 hover:text-hope-300 text-sm font-medium mt-3 transition-colors">Read More <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i></a>
+                    </div>
+                </article>
+
+                <!-- News 4 -->
+                <article class="glass-card overflow-hidden scroll-reveal group hover:shadow-xl transition-all duration-300" style="transition-delay:0.05s">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="http://static.photos/education/640x360/44" alt="Impact report education" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <div class="absolute top-3 left-3 px-3 py-1 bg-purple-500 rounded-full text-xs font-bold">Impact Report</div>
+                    </div>
+                    <div class="p-5">
+                        <time class="text-xs text-gray-500 font-medium" datetime="2024-11-28">November 28, 2024</time>
+                        <h3 class="text-lg font-bold mt-2 mb-2 group-hover:text-hope-400 transition-colors">Education Program: 300 Children Back in School</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Our education initiative has successfully enrolled 300 children in temporary learning centers across conflict zones...</p>
+                        <a href="#" class="inline-flex items-center text-hope-400 hover:text-hope-300 text-sm font-medium mt-3 transition-colors">Read More <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i></a>
+                    </div>
+                </article>
+
+                <!-- News 5 -->
+                <article class="glass-card overflow-hidden scroll-reveal group hover:shadow-xl transition-all duration-300" style="transition-delay:0.15s">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="http://static.photos/construction/640x360/55" alt="Shelter rebuilding project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <div class="absolute top-3 left-3 px-3 py-1 bg-hope-500 rounded-full text-xs font-bold">Project Update</div>
+                    </div>
+                    <div class="p-5">
+                        <time class="text-xs text-gray-500 font-medium" datetime="2024-11-20">November 20, 2024</time>
+                        <h3 class="text-lg font-bold mt-2 mb-2 group-hover:text-hope-400 transition-colors">Shelter Project: 50 New Homes Completed</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">We've completed construction of 50 permanent shelters for displaced families, providing safety and dignity...</p>
+                        <a href="#" class="inline-flex items-center text-hope-400 hover:text-hope-300 text-sm font-medium mt-3 transition-colors">Read More <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i></a>
+                    </div>
+                </article>
+
+                <!-- News 6 -->
+                <article class="glass-card overflow-hidden scroll-reveal group hover:shadow-xl transition-all duration-300" style="transition-delay:0.25s">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="http://static.photos/nature/640x360/66" alt="Clean water project update" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <div class="absolute top-3 left-3 px-3 py-1 bg-blue-500 rounded-full text-xs font-bold">Water Project</div>
+                    </div>
+                    <div class="p-5">
+                        <time class="text-xs text-gray-500 font-medium" datetime="2024-11-15">November 15, 2024</time>
+                        <h3 class="text-lg font-bold mt-2 mb-2 group-hover:text-hope-400 transition-colors">Clean Water Now Reaching 10,000 People Daily</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Our water purification systems are now providing clean, safe drinking water to over 10,000 people every day...</p>
+                        <a href="#" class="inline-flex items-center text-hope-400 hover:text-hope-300 text-sm font-medium mt-3 transition-colors">Read More <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="relative py-24 lg:py-32 overflow-hidden">
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-humanitarian-500/5 rounded-full blur-3xl"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-hope-500 font-bold text-sm uppercase tracking-[0.2em] mb-4 block">Get In Touch</span>
+                <h2 class="font-display text-4xl lg:text-5xl font-black mb-6">
+                    Contact <span class="text-humanitarian-400">Us</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+                    Have questions, want to partner with us, or need information? We'd love to hear from you.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="scroll-reveal">
+                    <div class="space-y-6">
+                        <div class="glass-card p-6 flex items-start gap-4 hover:bg-white/15 transition-all duration-300">
+                            <div class="w-12 h-12 rounded-xl bg-hope-500/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="mail" class="w-6 h-6 text-hope-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Email Us</h4>
+                                <a href="mailto:support@beyondthestreets.org" class="text-gray-400 hover:text-hope-400 transition-colors text-sm block">support@beyondthestreets.org</a>
+                                <a href="mailto:info@beyondthestreets.org" class="text-gray-400 hover:text-hope-400 transition-colors text-sm block">info@beyondthestreets.org</a>
+                            </div>
+                        </div>
+                        <div class="glass-card p-6 flex items-start gap-4 hover:bg-white/15 transition-all duration-300">
+                            <div class="w-12 h-12 rounded-xl bg-humanitarian-500/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="share-2" class="w-6 h-6 text-humanitarian-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-2">Follow Us</h4>
+                                <div class="flex gap-3">
+                                    <a href="#" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-hope-500/30 flex items-center justify-center transition-all" aria-label="Facebook">
+                                        <i data-lucide="facebook" class="w-5 h-5"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-pink-500/30 flex items-center justify-center transition-all" aria-label="Instagram">
+                                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-indigo-500/30 flex items-center justify-center transition-all" aria-label="Discord">
+                                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-card p-6 flex items-start gap-4 hover:bg-white/15 transition-all duration-300">
+                            <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="clock" class="w-6 h-6 text-green-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Response Time</h4>
+                                <p class="text-gray-400 text-sm">We typically respond within 24 hours. For emergencies, please call our hotline.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="font-bold text-white mb-4">Organization</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#story" class="text-gray-400 hover:text-gold transition-colors text-sm">About Us</a></li>
-                        <li><a href="#impact" class="text-gray-400 hover:text-gold transition-colors text-sm">Our Impact</a></li>
-                        <li><a href="#stories" class="text-gray-400 hover:text-gold transition-colors text-sm">Stories</a></li>
-                        <li><a href="#transparency" class="text-gray-400 hover:text-gold transition-colors text-sm">Transparency Hub</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white mb-4">Take Action</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#donate" class="text-gray-400 hover:text-gold transition-colors text-sm">Donate Crypto</a></li>
-                        <li><a href="#sponsor" class="text-gray-400 hover:text-gold transition-colors text-sm">Sponsor A Life</a></li>
-                        <li><a href="#community" class="text-gray-400 hover:text-gold transition-colors text-sm">Community</a></li>
-                        <li><a href="#updates" class="text-gray-400 hover:text-gold transition-colors text-sm">Get Updates</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white mb-4">Support</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#contact" class="text-gray-400 hover:text-gold transition-colors text-sm">Contact Us</a></li>
-                        <li><a href="#crisis-map" class="text-gray-400 hover:text-gold transition-colors text-sm">Crisis Map</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gold transition-colors text-sm">Privacy Policy</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gold transition-colors text-sm">Terms of Service</a></li>
-                    </ul>
+
+                <div class="scroll-reveal">
+                    <form id="contactForm" onsubmit="handleContactSubmit(event)" class="glass-card p-6 sm:p-8 space-y-5">
+                        <div class="grid sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="text-sm font-medium text-gray-300 mb-1.5 block">Your Name *</label>
+                                <input type="text" placeholder="Full name" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all" required>
+                            </div>
+                            <div>
+                                <label class="text-sm font-medium text-gray-300 mb-1.5 block">Email *</label>
+                                <input type="email" placeholder="your@email.com" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-sm font-medium text-gray-300 mb-1.5 block">Subject *</label>
+                            <select class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all appearance-none" required>
+                                <option value="" class="bg-navy-900">Select a subject</option>
+                                <option value="general" class="bg-navy-900">General Inquiry</option>
+                                <option value="donation" class="bg-navy-900">Donation Question</option>
+                                <option value="volunteer" class="bg-navy-900">Volunteer Information</option>
+                                <option value="partnership" class="bg-navy-900">Partnership Proposal</option>
+                                <option value="media" class="bg-navy-900">Media / Press</option>
+                                <option value="other" class="bg-navy-900">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-sm font-medium text-gray-300 mb-1.5 block">Message *</label>
+                            <textarea rows="5" placeholder="How can we help you?" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all resize-none" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-hope-500 hover:bg-hope-600 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-hope-500/20">
+                            <i data-lucide="send" class="w-4 h-4 inline mr-2"></i>Send Message
+                        </button>
+                    </form>
                 </div>
             </div>
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-                <p class="text-gray-500 text-sm">© 2025 Beyond The Streets. All rights reserved.</p>
-                <p class="text-gray-500 text-sm italic">Beyond The Streets — Technology. Transparency. Humanity.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative bg-navy-950 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- About Column -->
+                <div>
+                    <svg class="h-12 w-auto mb-4" viewBox="0 0 420 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="55" cy="38" r="18" fill="#f97316" opacity="0.9"/>
+                        <circle cx="55" cy="38" r="12" fill="#fb923c"/>
+                        <circle cx="55" cy="38" r="6" fill="#fff7ed"/>
+                        <line x1="55" y1="14" x2="55" y2="8" stroke="#f97316" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                        <line x1="73" y1="22" x2="78" y2="17" stroke="#f97316" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                        <line x1="37" y1="22" x2="32" y2="17" stroke="#f97316" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                        <path d="M10 82 L55 52 L100 82" stroke="#93c5fd" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                        <path d="M30 82 L55 62 L80 82" stroke="#60a5fa" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <rect x="5" y="82" width="100" height="3" rx="1.5" fill="#4b5563" opacity="0.5"/>
+                        <g opacity="0.85">
+                            <circle cx="42" cy="64" r="2.5" fill="#dbeafe"/>
+                            <line x1="42" y1="66.5" x2="42" y2="74" stroke="#dbeafe" stroke-width="1.8"/>
+                            <line x1="42" y1="74" x2="39" y2="80" stroke="#dbeafe" stroke-width="1.5"/>
+                            <line x1="42" y1="74" x2="45" y2="80" stroke="#dbeafe" stroke-width="1.5"/>
+                            <line x1="42" y1="69" x2="47" y2="67" stroke="#dbeafe" stroke-width="1.5"/>
+                            <circle cx="50" cy="66" r="2.2" fill="#dbeafe"/>
+                            <line x1="50" y1="68.2" x2="50" y2="75" stroke="#dbeafe" stroke-width="1.6"/>
+                            <line x1="50" y1="75" x2="47.5" y2="80" stroke="#dbeafe" stroke-width="1.4"/>
+                            <line x1="50" y1="75" x2="52.5" y2="80" stroke="#dbeafe" stroke-width="1.4"/>
+                            <line x1="50" y1="70" x2="47" y2="67" stroke="#dbeafe" stroke-width="1.4"/>
+                            <circle cx="46.5" cy="67" r="1" fill="#fb923c"/>
+                            <circle cx="60" cy="70" r="1.8" fill="#bfdbfe"/>
+                            <line x1="60" y1="71.8" x2="60" y2="77" stroke="#bfdbfe" stroke-width="1.4"/>
+                            <line x1="60" y1="77" x2="58" y2="81" stroke="#bfdbfe" stroke-width="1.2"/>
+                            <line x1="60" y1="77" x2="62" y2="81" stroke="#bfdbfe" stroke-width="1.2"/>
+                        </g>
+                        <text x="118" y="42" font-family="'Playfair Display', Georgia, serif" font-size="26" font-weight="800" fill="white" letter-spacing="0.5">BEYOND</text>
+                        <text x="118" y="68" font-family="'Playfair Display', Georgia, serif" font-size="26" font-weight="800" fill="white" letter-spacing="0.5">THE STREETS</text>
+                        <line x1="118" y1="48" x2="330" y2="48" stroke="#f97316" stroke-width="2" opacity="0.6"/>
+                        <text x="118" y="85" font-family="'Inter', sans-serif" font-size="9" font-weight="500" fill="#93c5fd" letter-spacing="3">HUMANITARIAN RELIEF ORGANIZATION</text>
+                    </svg>
+                    <p class="text-gray-400 text-sm leading-relaxed">A global humanitarian organization dedicated to providing emergency relief, medical support, shelter, and hope to vulnerable communities worldwide.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#home" class="text-gray-400 hover:text-hope-400 transition-colors text-sm">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-hope-400 transition-colors text-sm">About Us</a></li>
+                        <li><a href="#mission" class="text-gray-400 hover:text-hope-400 transition-colors text-sm">Our Mission</a></li>
+                        <li><a href="#appeals" class="text-gray-400 hover:text-hope-400 transition-colors text-sm">Emergency Appeals</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-hope-400 transition-colors text-sm">Our Projects</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-hope-400 transition-colors text-sm">Gallery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Get Involved -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Get Involved</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#donate" class="text-gray-400 hover:text-hope-400 transition-colors text-sm">Donate</a></li>
+                        <li><a href="#volunteer" class="text-gray-400 hover:text-hope-400 transition-colors text-sm">Volunteer</a></li>
+                        <li><a href="#transparency" class="text-gray-400 hover:text-hope-400 transition-colors text-sm">Transparency</a></li>
+                        <li><a href="#news" class="text-gray-400 hover:text-hope-400 transition-colors text-sm">News & Updates</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-hope-400 transition-colors text-sm">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Contact</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="mailto:support@beyondthestreets.org" class="text-gray-400 hover:text-hope-400 transition-colors text-sm flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i>support@beyondthestreets.org</a></li>
+                        <li><a href="mailto:info@beyondthestreets.org" class="text-gray-400 hover:text-hope-400 transition-colors text-sm flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i>info@beyondthestreets.org</a></li>
+                    </ul>
+                    <div class="flex gap-3 mt-4">
+                        <a href="#" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-hope-500/30 flex items-center justify-center transition-all" aria-label="Facebook"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-pink-500/30 flex items-center justify-center transition-all" aria-label="Instagram"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-indigo-500/30 flex items-center justify-center transition-all" aria-label="Discord"><i data-lucide="message-circle" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-gray-500 text-sm">&copy; 2024 Beyond The Streets. All rights reserved. A registered humanitarian organization.</p>
+                <div class="flex gap-6 text-sm">
+                    <a href="#" class="text-gray-500 hover:text-gray-300 transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-500 hover:text-gray-300 transition-colors">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-hope-500 hover:bg-hope-600 text-white shadow-lg shadow-hope-500/20 flex items-center justify-center transition-all duration-300 opacity-0 translate-y-4 pointer-events-none z-50" aria-label="Back to top">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
     <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
-        <div class="px-6 py-3 bg-deep-blue text-white rounded-xl shadow-2xl flex items-center gap-2">
-            <i data-lucide="check-circle" class="w-5 h-5 text-gold"></i>
-            <span id="toast-msg">Copied!</span>
-        </div>
+    <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[300] px-6 py-3 bg-green-500 text-white font-bold rounded-xl shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <span id="toastMessage"></span>
     </div>
 
     <script src="https://unpkg.com/lucide@latest"></script>
