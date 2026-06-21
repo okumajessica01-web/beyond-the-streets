@@ -634,196 +634,225 @@
         </div>
     </section>
 
-    <!-- Donation Section -->
-    <section id="donate" class="relative py-24 lg:py-32 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-navy-900 via-navy-900 to-navy-950"></div>
-        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-hope-500 via-humanitarian-500 to-hope-500"></div>
-        <div class="absolute top-20 right-0 w-72 h-72 bg-hope-500/5 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-20 left-0 w-96 h-96 bg-humanitarian-500/5 rounded-full blur-3xl"></div>
-
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-12 scroll-reveal">
-                <span class="text-hope-500 font-bold text-sm uppercase tracking-[0.2em] mb-4 block">Make a Difference</span>
-                <h2 class="font-display text-4xl lg:text-5xl font-black mb-6">
-                    Donate <span class="text-hope-400">Today</span>
-                </h2>
-                <p class="text-gray-400 text-lg max-w-3xl mx-auto">
-                    Every donation saves lives. Choose an amount and payment method — 100% of your contribution goes directly to those in need.
+   <!-- Donate Section -->
+    <section id="donate" class="relative py-20 md:py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900/50 to-navy-950"></div>
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sand-400/30 to-transparent"></div>
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-sand-400/10 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-primary-500/10 rounded-full blur-3xl"></div>
+        
+        <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-sand-400 font-semibold text-sm uppercase tracking-widest mb-4 block">Make a Difference</span>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Donate <span class="gradient-text">Today</span></h2>
+                <p class="text-white/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                    Every donation saves lives. 100% of your contribution goes directly to those in need.
                 </p>
             </div>
 
-            <div class="glass-card p-6 sm:p-8 lg:p-10 scroll-reveal">
-                <!-- Donation Amount Selector -->
+            <div class="fade-up glass rounded-3xl p-8 md:p-12">
+                <!-- Amount Selection -->
                 <div class="mb-8">
-                    <h3 class="text-lg font-bold mb-4">Select Donation Amount</h3>
-                    <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 mb-4">
-                        <button class="donation-amount py-3 px-4 rounded-xl border-2 border-white/10 hover:border-hope-500 bg-white/5 hover:bg-hope-500/10 font-bold transition-all duration-200 text-center" data-amount="25">$25</button>
-                        <button class="donation-amount py-3 px-4 rounded-xl border-2 border-white/10 hover:border-hope-500 bg-white/5 hover:bg-hope-500/10 font-bold transition-all duration-200 text-center" data-amount="50">$50</button>
-                        <button class="donation-amount py-3 px-4 rounded-xl border-2 border-hope-500 bg-hope-500/20 font-bold transition-all duration-200 text-center active-amount" data-amount="100">$100</button>
-                        <button class="donation-amount py-3 px-4 rounded-xl border-2 border-white/10 hover:border-hope-500 bg-white/5 hover:bg-hope-500/10 font-bold transition-all duration-200 text-center" data-amount="250">$250</button>
-                        <button class="donation-amount py-3 px-4 rounded-xl border-2 border-white/10 hover:border-hope-500 bg-white/5 hover:bg-hope-500/10 font-bold transition-all duration-200 text-center" data-amount="500">$500</button>
+                    <label class="text-white/80 font-semibold text-sm uppercase tracking-wider mb-4 block">Select Amount</label>
+                    <div class="grid grid-cols-3 sm:grid-cols-6 gap-3 mb-4">
+                        <button onclick="selectAmount(10)" class="amount-btn px-4 py-3 rounded-xl border border-white/10 text-white font-semibold hover:border-sand-400/50 hover:bg-sand-400/5 transition-all text-sm">$10</button>
+                        <button onclick="selectAmount(25)" class="amount-btn px-4 py-3 rounded-xl border border-white/10 text-white font-semibold hover:border-sand-400/50 hover:bg-sand-400/5 transition-all text-sm">$25</button>
+                        <button onclick="selectAmount(50)" class="amount-btn px-4 py-3 rounded-xl border border-white/10 text-white font-semibold hover:border-sand-400/50 hover:bg-sand-400/5 transition-all text-sm">$50</button>
+                        <button onclick="selectAmount(100)" class="amount-btn px-4 py-3 rounded-xl border border-white/10 text-white font-semibold hover:border-sand-400/50 hover:bg-sand-400/5 transition-all text-sm active-amount bg-sand-400/10 border-sand-400/50">$100</button>
+                        <button onclick="selectAmount(250)" class="amount-btn px-4 py-3 rounded-xl border border-white/10 text-white font-semibold hover:border-sand-400/50 hover:bg-sand-400/5 transition-all text-sm">$250</button>
+                        <button onclick="selectAmount(500)" class="amount-btn px-4 py-3 rounded-xl border border-white/10 text-white font-semibold hover:border-sand-400/50 hover:bg-sand-400/5 transition-all text-sm">$500</button>
                     </div>
-                    <div class="flex items-center gap-3">
-                        <span class="text-gray-400 text-sm font-medium">Custom:</span>
-                        <div class="relative flex-1 max-w-xs">
-                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-bold">$</span>
-                            <input type="number" id="customAmount" min="1" placeholder="Enter amount" class="w-full pl-8 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all">
-                        </div>
+                    <div class="relative">
+                        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 font-semibold text-lg">$</span>
+                        <input id="custom-amount" type="number" placeholder="Custom amount" class="w-full pl-10 pr-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white font-semibold placeholder-white/30 focus:outline-none focus:border-sand-400/50 focus:bg-white/[0.08] transition-all">
                     </div>
                 </div>
 
-                <!-- Recurring Option -->
-                <div class="mb-8 p-4 rounded-xl bg-white/5 border border-white/10">
-                    <label class="flex items-center gap-3 cursor-pointer">
-                        <div class="relative">
-                            <input type="checkbox" id="recurring" class="sr-only peer">
-                            <div class="w-11 h-6 bg-navy-800 peer-checked:bg-hope-500 rounded-full transition-colors"></div>
-                            <div class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform peer-checked:translate-x-5"></div>
-                        </div>
-                        <div>
-                            <span class="font-bold text-sm">Make this a monthly donation</span>
-                            <p class="text-gray-400 text-xs mt-0.5">Recurring donations provide sustained support for communities</p>
-                        </div>
-                    </label>
-                </div>
-
-                <!-- Payment Method Tabs -->
+                <!-- Payment Methods -->
                 <div class="mb-8">
-                    <h3 class="text-lg font-bold mb-4">Payment Method</h3>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <button class="payment-tab active-tab px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-200" data-tab="card">
-                            <i data-lucide="credit-card" class="w-4 h-4 inline mr-1.5"></i>Pay with Card
-                        </button>
-                        <button class="payment-tab px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-200" data-tab="crypto">
-                            <i data-lucide="bitcoin" class="w-4 h-4 inline mr-1.5"></i>Cryptocurrency
-                        </button>
-                        <button class="payment-tab px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-200" data-tab="airtm">
-                            <i data-lucide="wallet" class="w-4 h-4 inline mr-1.5"></i>Airtm
-                        </button>
-                    </div>
-
-                    <!-- Card Payment (Flutterwave) -->
-                    <div id="tab-card" class="payment-content">
-                        <div class="p-6 rounded-xl bg-white/5 border border-white/10">
-                            <div class="flex items-center gap-2 mb-4">
-                                <span class="text-xs text-gray-400">Powered by</span>
-                                <span class="font-bold text-hope-400">Flutterwave</span>
-                            </div>
-                            <div class="flex gap-3 mb-6">
-                                <div class="px-3 py-2 bg-white/10 rounded-lg text-xs font-bold">VISA</div>
-                                <div class="px-3 py-2 bg-white/10 rounded-lg text-xs font-bold">Mastercard</div>
-                                <div class="px-3 py-2 bg-white/10 rounded-lg text-xs font-bold">Verve</div>
-                                <div class="px-3 py-2 bg-white/10 rounded-lg text-xs font-bold">AMEX</div>
-                            </div>
-                            <form id="cardForm" class="space-y-4" onsubmit="handleCardDonation(event)">
-                                <div>
-                                    <label class="text-sm font-medium text-gray-300 mb-1 block">Card Number</label>
-                                    <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all" required>
-                                </div>
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div>
-                                        <label class="text-sm font-medium text-gray-300 mb-1 block">Expiry Date</label>
-                                        <input type="text" placeholder="MM/YY" maxlength="5" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all" required>
+                    <label class="text-white/80 font-semibold text-sm uppercase tracking-wider mb-4 block">Payment Method</label>
+                    <div class="grid gap-4">
+                        <!-- Bank Transfer -->
+                        <div class="donation-option active rounded-2xl border border-sand-400/50 bg-sand-400/[0.05] p-6 cursor-pointer" onclick="selectPayment(this, 'bank')">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 rounded-xl bg-sand-400/15 flex items-center justify-center">
+                                        <i data-lucide="landmark" class="w-6 h-6 text-sand-400"></i>
                                     </div>
                                     <div>
-                                        <label class="text-sm font-medium text-gray-300 mb-1 block">CVV</label>
-                                        <input type="text" placeholder="123" maxlength="4" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all" required>
+                                        <h4 class="text-white font-bold text-lg">Bank Transfer</h4>
+                                        <p class="text-white/50 text-sm">Direct bank transfer to our account</p>
                                     </div>
                                 </div>
-                                <div>
-                                    <label class="text-sm font-medium text-gray-300 mb-1 block">Cardholder Name</label>
-                                    <input type="text" placeholder="Full name on card" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all" required>
+                                <div class="w-6 h-6 rounded-full border-2 border-sand-400 flex items-center justify-center payment-dot">
+                                    <div class="w-3 h-3 rounded-full bg-sand-400 payment-inner"></div>
                                 </div>
-                                <div>
-                                    <label class="text-sm font-medium text-gray-300 mb-1 block">Email Address</label>
-                                    <input type="email" placeholder="your@email.com" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all" required>
+                            </div>
+                            <div id="bank-details" class="bg-white/[0.03] rounded-xl p-5 space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-white/40 text-xs uppercase tracking-wider block">Bank Name</span>
+                                        <span class="text-white font-semibold" id="bank-name">Global Trust Bank</span>
+                                    </div>
+                                    <button onclick="copyToClipboard('Bank Name: Global Trust Bank', this)" class="px-3 py-1.5 rounded-lg bg-sand-400/10 text-sand-400 text-xs font-semibold hover:bg-sand-400/20 transition-colors flex items-center gap-1.5">
+                                        <i data-lucide="copy" class="w-3 h-3"></i>
+                                        Copy
+                                    </button>
                                 </div>
-                                <button type="submit" class="w-full py-4 bg-hope-500 hover:bg-hope-600 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-hope-500/20 text-lg">
-                                    <i data-lucide="lock" class="w-4 h-4 inline mr-2"></i>Donate <span id="cardAmount">$100</span>
+                                <div class="h-px bg-white/5"></div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-white/40 text-xs uppercase tracking-wider block">Account Name</span>
+                                        <span class="text-white font-semibold" id="account-name">Beyond The Streets Foundation</span>
+                                    </div>
+                                    <button onclick="copyToClipboard('Account Name: Beyond The Streets Foundation', this)" class="px-3 py-1.5 rounded-lg bg-sand-400/10 text-sand-400 text-xs font-semibold hover:bg-sand-400/20 transition-colors flex items-center gap-1.5">
+                                        <i data-lucide="copy" class="w-3 h-3"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                                <div class="h-px bg-white/5"></div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-white/40 text-xs uppercase tracking-wider block">Account Number</span>
+                                        <span class="text-white font-semibold font-mono" id="account-number">GB29 NWBK 6016 1331 9268 19</span>
+                                    </div>
+                                    <button onclick="copyToClipboard('GB29 NWBK 6016 1331 9268 19', this)" class="px-3 py-1.5 rounded-lg bg-sand-400/10 text-sand-400 text-xs font-semibold hover:bg-sand-400/20 transition-colors flex items-center gap-1.5">
+                                        <i data-lucide="copy" class="w-3 h-3"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                                <div class="h-px bg-white/5"></div>
+                                <button onclick="copyAllBankDetails()" class="w-full py-3 rounded-xl bg-gradient-to-r from-sand-400/20 to-sand-400/10 border border-sand-400/20 text-sand-300 font-semibold hover:from-sand-400/30 hover:to-sand-400/15 transition-all flex items-center justify-center gap-2">
+                                    <i data-lucide="clipboard-list" class="w-4 h-4"></i>
+                                    Copy All Bank Details
                                 </button>
-                            </form>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Crypto Payment -->
-                    <div id="tab-crypto" class="payment-content hidden">
-                        <div class="p-6 rounded-xl bg-white/5 border border-white/10">
-                            <p class="text-gray-400 text-sm mb-6">Send cryptocurrency to the following wallet address. Your donation will be confirmed within the network.</p>
-                            <div class="space-y-5">
-                                <div class="crypto-wallet p-4 rounded-xl bg-white/5 border border-white/10">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="font-bold flex items-center"><span class="text-orange-400 mr-2">₿</span>Bitcoin (BTC)</span>
-                                        <button onclick="copyAddress('bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
+                        <!-- Airtm Transfer -->
+                        <div class="donation-option rounded-2xl border border-white/10 bg-white/[0.02] p-6 cursor-pointer" onclick="selectPayment(this, 'airtm')">
+                            <div class="flex items-center justify-between mb-0">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 rounded-xl bg-blue-500/15 flex items-center justify-center">
+                                        <i data-lucide="circle-dollar-sign" class="w-6 h-6 text-blue-400"></i>
                                     </div>
-                                    <code class="text-xs text-humanitarian-300 break-all">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</code>
+                                    <div>
+                                        <h4 class="text-white font-bold text-lg">Airtm Username Transfer</h4>
+                                        <p class="text-white/50 text-sm">Send via Airtm to our username</p>
+                                    </div>
                                 </div>
-                                <div class="crypto-wallet p-4 rounded-xl bg-white/5 border border-white/10">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="font-bold flex items-center"><span class="text-blue-400 mr-2">Ξ</span>Ethereum (ETH)</span>
-                                        <button onclick="copyAddress('0x71C7656EC7ab88b098defB751B7401B5f6d8976F')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
-                                    </div>
-                                    <code class="text-xs text-humanitarian-300 break-all">0x71C7656EC7ab88b098defB751B7401B5f6d8976F</code>
+                                <div class="w-6 h-6 rounded-full border-2 border-white/20 flex items-center justify-center payment-dot">
+                                    <div class="w-3 h-3 rounded-full bg-transparent payment-inner"></div>
                                 </div>
-                                <div class="crypto-wallet p-4 rounded-xl bg-white/5 border border-white/10">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="font-bold flex items-center"><span class="text-green-400 mr-2">₮</span>USDT (TRC20)</span>
-                                        <button onclick="copyAddress('TN2YqRhkJo8K5b3gDfV3M4TLb3F6pRg4mK')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
+                            </div>
+                            <div id="airtm-details" class="hidden mt-4 bg-white/[0.03] rounded-xl p-5 space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-white/40 text-xs uppercase tracking-wider block">Airtm Username</span>
+                                        <span class="text-white font-semibold text-lg font-mono">@BeyondTheStreets</span>
                                     </div>
-                                    <code class="text-xs text-humanitarian-300 break-all">TN2YqRhkJo8K5b3gDfV3M4TLb3F6pRg4mK</code>
+                                    <button onclick="copyToClipboard('@BeyondTheStreets', this)" class="px-4 py-2 rounded-lg bg-blue-500/15 text-blue-400 text-sm font-semibold hover:bg-blue-500/25 transition-colors flex items-center gap-1.5">
+                                        <i data-lucide="copy" class="w-4 h-4"></i>
+                                        Copy Username
+                                    </button>
                                 </div>
-                                <div class="crypto-wallet p-4 rounded-xl bg-white/5 border border-white/10">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="font-bold flex items-center"><span class="text-blue-300 mr-2">₮</span>USDT (ERC20)</span>
-                                        <button onclick="copyAddress('0x71C7656EC7ab88b098defB751B7401B5f6d8976F')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
-                                    </div>
-                                    <code class="text-xs text-humanitarian-300 break-all">0x71C7656EC7ab88b098defB751B7401B5f6d8976F</code>
-                                </div>
-                                <div class="crypto-wallet p-4 rounded-xl bg-white/5 border border-white/10">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="font-bold flex items-center"><span class="text-yellow-400 mr-2">◈</span>BNB</span>
-                                        <button onclick="copyAddress('bnb1grpf0955h0ykzq3ar5nmum7y6gdfl6lxfn46h2')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
-                                    </div>
-                                    <code class="text-xs text-humanitarian-300 break-all">bnb1grpf0955h0ykzq3ar5nmum7y6gdfl6lxfn46h2</code>
-                                </div>
-                                <div class="crypto-wallet p-4 rounded-xl bg-white/5 border border-white/10">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="font-bold flex items-center"><span class="text-purple-400 mr-2">◎</span>Solana (SOL)</span>
-                                        <button onclick="copyAddress('7EcDhSYGxXyscszYEp35KHN8vvw3svAuLKTzXwCFLtV')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
-                                    </div>
-                                    <code class="text-xs text-humanitarian-300 break-all">7EcDhSYGxXyscszYEp35KHN8vvw3svAuLKTzXwCFLtV</code>
+                                <div class="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 flex items-start gap-3">
+                                    <i data-lucide="info" class="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0"></i>
+                                    <p class="text-blue-300/80 text-sm leading-relaxed">Open your Airtm app, search for the username <strong>@BeyondTheStreets</strong>, and send your donation directly. Please include "Donation" in the note.</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Airtm Payment -->
-                    <div id="tab-airtm" class="payment-content hidden">
-                        <div class="p-6 rounded-xl bg-white/5 border border-white/10 text-center">
-                            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
-                                <i data-lucide="wallet" class="w-8 h-8 text-blue-400"></i>
+                        <!-- Crypto Transfer -->
+                        <div class="donation-option rounded-2xl border border-white/10 bg-white/[0.02] p-6 cursor-pointer" onclick="selectPayment(this, 'crypto')">
+                            <div class="flex items-center justify-between mb-0">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 rounded-xl bg-orange-500/15 flex items-center justify-center">
+                                        <i data-lucide="bitcoin" class="w-6 h-6 text-orange-400"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white font-bold text-lg">Crypto Donation</h4>
+                                        <p class="text-white/50 text-sm">Donate using cryptocurrency</p>
+                                    </div>
+                                </div>
+                                <div class="w-6 h-6 rounded-full border-2 border-white/20 flex items-center justify-center payment-dot">
+                                    <div class="w-3 h-3 rounded-full bg-transparent payment-inner"></div>
+                                </div>
                             </div>
-                            <h4 class="text-xl font-bold mb-2">Donate via Airtm</h4>
-                            <p class="text-gray-400 text-sm mb-6">Support us through Airtm — a fast and secure way to send funds globally.</p>
-                            <a href="https://www.airtm.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20">
-                                <i data-lucide="external-link" class="w-4 h-4 mr-2"></i>Pay with Airtm
-                            </a>
+                            <div id="crypto-details" class="hidden mt-4 bg-white/[0.03] rounded-xl p-5 space-y-4">
+                                <!-- Bitcoin -->
+                                <div>
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center">
+                                            <i data-lucide="bitcoin" class="w-3.5 h-3.5 text-orange-400"></i>
+                                        </div>
+                                        <span class="text-white/80 font-semibold text-sm">Bitcoin (BTC)</span>
+                                    </div>
+                                    <div class="flex items-center justify-between gap-3">
+                                        <code class="text-white font-mono text-xs sm:text-sm break-all bg-white/[0.03] px-3 py-2 rounded-lg flex-1 select-all">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</code>
+                                        <button onclick="copyToClipboard('bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh', this)" class="px-3 py-1.5 rounded-lg bg-orange-500/10 text-orange-400 text-xs font-semibold hover:bg-orange-500/20 transition-colors flex items-center gap-1.5 whitespace-nowrap">
+                                            <i data-lucide="copy" class="w-3 h-3"></i>
+                                            Copy
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="h-px bg-white/5"></div>
+                                <!-- Ethereum -->
+                                <div>
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center">
+                                            <i data-lucide="diamond" class="w-3.5 h-3.5 text-indigo-400"></i>
+                                        </div>
+                                        <span class="text-white/80 font-semibold text-sm">Ethereum (ETH)</span>
+                                    </div>
+                                    <div class="flex items-center justify-between gap-3">
+                                        <code class="text-white font-mono text-xs sm:text-sm break-all bg-white/[0.03] px-3 py-2 rounded-lg flex-1 select-all">0x71C7656EC7ab88b098defB751B7401B5f6d8976F</code>
+                                        <button onclick="copyToClipboard('0x71C7656EC7ab88b098defB751B7401B5f6d8976F', this)" class="px-3 py-1.5 rounded-lg bg-indigo-500/10 text-indigo-400 text-xs font-semibold hover:bg-indigo-500/20 transition-colors flex items-center gap-1.5 whitespace-nowrap">
+                                            <i data-lucide="copy" class="w-3 h-3"></i>
+                                            Copy
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="h-px bg-white/5"></div>
+                                <!-- USDT (TRC-20) -->
+                                <div>
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
+                                            <i data-lucide="circle-dollar-sign" class="w-3.5 h-3.5 text-green-400"></i>
+                                        </div>
+                                        <span class="text-white/80 font-semibold text-sm">USDT (TRC-20)</span>
+                                    </div>
+                                    <div class="flex items-center justify-between gap-3">
+                                        <code class="text-white font-mono text-xs sm:text-sm break-all bg-white/[0.03] px-3 py-2 rounded-lg flex-1 select-all">TN2YqRhkJo8K6ExvF7RNbkZHpLvtzRhRxs</code>
+                                        <button onclick="copyToClipboard('TN2YqRhkJo8K6ExvF7RNbkZHpLvtzRhRxs', this)" class="px-3 py-1.5 rounded-lg bg-green-500/10 text-green-400 text-xs font-semibold hover:bg-green-500/20 transition-colors flex items-center gap-1.5 whitespace-nowrap">
+                                            <i data-lucide="copy" class="w-3 h-3"></i>
+                                            Copy
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="bg-orange-500/10 border border-orange-500/20 rounded-xl p-4 flex items-start gap-3">
+                                    <i data-lucide="info" class="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0"></i>
+                                    <p class="text-orange-300/80 text-sm leading-relaxed">Please send only the specified cryptocurrency to its matching wallet address. Sending the wrong asset may result in permanent loss. Include "Donation" in the memo if available.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Security Badge -->
-                <div class="flex items-center justify-center gap-4 pt-6 border-t border-white/10">
-                    <div class="flex items-center gap-2 text-gray-400 text-sm">
-                        <i data-lucide="shield-check" class="w-5 h-5 text-green-400"></i>
-                        <span>SSL Secured</span>
+                <!-- Donation Summary -->
+                <div class="bg-gradient-to-r from-sand-400/10 via-sand-400/5 to-sand-400/10 rounded-2xl p-6 border border-sand-400/10">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-white/60 font-medium">Your Donation</span>
+                        <span class="text-white font-bold text-2xl font-serif" id="donation-amount">$100</span>
                     </div>
-                    <div class="flex items-center gap-2 text-gray-400 text-sm">
-                        <i data-lucide="lock" class="w-5 h-5 text-green-400"></i>
-                        <span>256-bit Encryption</span>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-white/40 text-sm">Processing Fee</span>
+                        <span class="text-green-400 text-sm font-semibold">$0.00 — 100% goes to aid</span>
                     </div>
-                    <div class="flex items-center gap-2 text-gray-400 text-sm">
-                        <i data-lucide="badge-check" class="w-5 h-5 text-green-400"></i>
-                        <span>Verified NGO</span>
+                    <div class="h-px bg-white/10 my-4"></div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-white font-semibold">Total Impact</span>
+                        <span class="gradient-text font-bold text-2xl font-serif" id="total-amount">$100</span>
                     </div>
                 </div>
             </div>
