@@ -691,9 +691,7 @@
                 <div class="mb-8">
                     <h3 class="text-lg font-bold mb-4">Payment Method</h3>
                     <div class="flex flex-wrap gap-2 mb-6">
-                        <button class="payment-tab active-tab px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-200" data-tab="card">
-                            <i data-lucide="credit-card" class="w-4 h-4 inline mr-1.5"></i>Pay with Card
-                        </button>
+                       
                         <button class="payment-tab px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-200" data-tab="crypto">
                             <i data-lucide="bitcoin" class="w-4 h-4 inline mr-1.5"></i>Cryptocurrency
                         </button>
@@ -702,49 +700,7 @@
                         </button>
                     </div>
 
-                    <!-- Card Payment (Flutterwave) -->
-                    <div id="tab-card" class="payment-content">
-                        <div class="p-6 rounded-xl bg-white/5 border border-white/10">
-                            <div class="flex items-center gap-2 mb-4">
-                                <span class="text-xs text-gray-400">Powered by</span>
-                                <span class="font-bold text-hope-400">Flutterwave</span>
-                            </div>
-                            <div class="flex gap-3 mb-6">
-                                <div class="px-3 py-2 bg-white/10 rounded-lg text-xs font-bold">VISA</div>
-                                <div class="px-3 py-2 bg-white/10 rounded-lg text-xs font-bold">Mastercard</div>
-                                <div class="px-3 py-2 bg-white/10 rounded-lg text-xs font-bold">Verve</div>
-                                <div class="px-3 py-2 bg-white/10 rounded-lg text-xs font-bold">AMEX</div>
-                            </div>
-                            <form id="cardForm" class="space-y-4" onsubmit="handleCardDonation(event)">
-                                <div>
-                                    <label class="text-sm font-medium text-gray-300 mb-1 block">Card Number</label>
-                                    <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all" required>
-                                </div>
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div>
-                                        <label class="text-sm font-medium text-gray-300 mb-1 block">Expiry Date</label>
-                                        <input type="text" placeholder="MM/YY" maxlength="5" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all" required>
-                                    </div>
-                                    <div>
-                                        <label class="text-sm font-medium text-gray-300 mb-1 block">CVV</label>
-                                        <input type="text" placeholder="123" maxlength="4" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all" required>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="text-sm font-medium text-gray-300 mb-1 block">Cardholder Name</label>
-                                    <input type="text" placeholder="Full name on card" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all" required>
-                                </div>
-                                <div>
-                                    <label class="text-sm font-medium text-gray-300 mb-1 block">Email Address</label>
-                                    <input type="email" placeholder="your@email.com" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-hope-500 focus:ring-1 focus:ring-hope-500 transition-all" required>
-                                </div>
-                                <button type="submit" class="w-full py-4 bg-hope-500 hover:bg-hope-600 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-hope-500/20 text-lg">
-                                    <i data-lucide="lock" class="w-4 h-4 inline mr-2"></i>Donate <span id="cardAmount">$100</span>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
+                  
                     <!-- Crypto Payment -->
                     <div id="tab-crypto" class="payment-content hidden">
                         <div class="p-6 rounded-xl bg-white/5 border border-white/10">
@@ -753,44 +709,44 @@
                                 <div class="crypto-wallet p-4 rounded-xl bg-white/5 border border-white/10">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="font-bold flex items-center"><span class="text-orange-400 mr-2">₿</span>Bitcoin (BTC)</span>
-                                        <button onclick="copyAddress('bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
+                                        <button onclick="copyAddress('bc1qmy5a5esczn94jynsyeg3ew8t929yvejc2etvpp')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
                                     </div>
-                                    <code class="text-xs text-humanitarian-300 break-all">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</code>
+                                    <code class="text-xs text-humanitarian-300 break-all">bc1qmy5a5esczn94jynsyeg3ew8t929yvejc2etvpp</code>
                                 </div>
                                 <div class="crypto-wallet p-4 rounded-xl bg-white/5 border border-white/10">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="font-bold flex items-center"><span class="text-blue-400 mr-2">Ξ</span>Ethereum (ETH)</span>
-                                        <button onclick="copyAddress('0x71C7656EC7ab88b098defB751B7401B5f6d8976F')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
+                                        <button onclick="copyAddress('0xd5751aBCCC0eFaAD9fF0F21368cE73916CD6cECF')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
                                     </div>
-                                    <code class="text-xs text-humanitarian-300 break-all">0x71C7656EC7ab88b098defB751B7401B5f6d8976F</code>
+                                    <code class="text-xs text-humanitarian-300 break-all">0xd5751aBCCC0eFaAD9fF0F21368cE73916CD6cECF</code>
                                 </div>
                                 <div class="crypto-wallet p-4 rounded-xl bg-white/5 border border-white/10">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="font-bold flex items-center"><span class="text-green-400 mr-2">₮</span>USDT (TRC20)</span>
-                                        <button onclick="copyAddress('TN2YqRhkJo8K5b3gDfV3M4TLb3F6pRg4mK')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
+                                        <button onclick="copyAddress('TSbUERkcLRL56kyjR7qTdJWzsrqHuTS9Hu')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
                                     </div>
-                                    <code class="text-xs text-humanitarian-300 break-all">TN2YqRhkJo8K5b3gDfV3M4TLb3F6pRg4mK</code>
+                                    <code class="text-xs text-humanitarian-300 break-all">TSbUERkcLRL56kyjR7qTdJWzsrqHuTS9Hu</code>
                                 </div>
                                 <div class="crypto-wallet p-4 rounded-xl bg-white/5 border border-white/10">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="font-bold flex items-center"><span class="text-blue-300 mr-2">₮</span>USDT (ERC20)</span>
-                                        <button onclick="copyAddress('0x71C7656EC7ab88b098defB751B7401B5f6d8976F')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
+                                        <button onclick="copyAddress('0xd5751aBCCC0eFaAD9fF0F21368cE73916CD6cECF')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
                                     </div>
-                                    <code class="text-xs text-humanitarian-300 break-all">0x71C7656EC7ab88b098defB751B7401B5f6d8976F</code>
+                                    <code class="text-xs text-humanitarian-300 break-all">0xd5751aBCCC0eFaAD9fF0F21368cE73916CD6cECF</code>
                                 </div>
                                 <div class="crypto-wallet p-4 rounded-xl bg-white/5 border border-white/10">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="font-bold flex items-center"><span class="text-yellow-400 mr-2">◈</span>BNB</span>
-                                        <button onclick="copyAddress('bnb1grpf0955h0ykzq3ar5nmum7y6gdfl6lxfn46h2')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
+                                        <button onclick="copyAddress('0xd5751aBCCC0eFaAD9fF0F21368cE73916CD6cECF')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
                                     </div>
-                                    <code class="text-xs text-humanitarian-300 break-all">bnb1grpf0955h0ykzq3ar5nmum7y6gdfl6lxfn46h2</code>
+                                    <code class="text-xs text-humanitarian-300 break-all">0xd5751aBCCC0eFaAD9fF0F21368cE73916CD6cECF</code>
                                 </div>
                                 <div class="crypto-wallet p-4 rounded-xl bg-white/5 border border-white/10">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="font-bold flex items-center"><span class="text-purple-400 mr-2">◎</span>Solana (SOL)</span>
-                                        <button onclick="copyAddress('7EcDhSYGxXyscszYEp35KHN8vvw3svAuLKTzXwCFLtV')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
+                                        <button onclick="copyAddress('6oqr71AMA3k37rnwXL3MCCryNhz5vC7jzyqB4o8P5dGS')" class="text-xs text-gray-400 hover:text-hope-400 transition-colors flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i>Copy</button>
                                     </div>
-                                    <code class="text-xs text-humanitarian-300 break-all">7EcDhSYGxXyscszYEp35KHN8vvw3svAuLKTzXwCFLtV</code>
+                                    <code class="text-xs text-humanitarian-300 break-all">6oqr71AMA3k37rnwXL3MCCryNhz5vC7jzyqB4o8P5dGS</code>
                                 </div>
                             </div>
                         </div>
@@ -804,7 +760,7 @@
                             </div>
                             <h4 class="text-xl font-bold mb-2">Donate via Airtm</h4>
                             <p class="text-gray-400 text-sm mb-6">Support us through Airtm — a fast and secure way to send funds globally.</p>
-                            <a href="https://www.airtm.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20">
+                            <a href="https://airtm.me/beyondtheatreets" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20">
                                 <i data-lucide="external-link" class="w-4 h-4 mr-2"></i>Pay with Airtm
                             </a>
                         </div>
@@ -916,7 +872,6 @@
                                 <option value="AU" class="bg-navy-900">Australia</option>
                                 <option value="DE" class="bg-navy-900">Germany</option>
                                 <option value="FR" class="bg-navy-900">France</option>
-                                <option value="NG" class="bg-navy-900">Nigeria</option>
                                 <option value="KE" class="bg-navy-900">Kenya</option>
                                 <option value="PK" class="bg-navy-900">Pakistan</option>
                                 <option value="TR" class="bg-navy-900">Turkey</option>
