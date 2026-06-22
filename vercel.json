@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/donate",
+      "destination": "/#donate",
+      "permanent": true
+    }
+  ]
+}
