@@ -1,6 +1,8 @@
+// Initialize Lucide Icons
+lucide.createIcons();
+
 // === Preloader ===
 window.addEventListener('load', () => {
-   lucide.createIcons();
     const preloader = document.getElementById('preloader');
     setTimeout(() => {
         preloader.style.opacity = '0';
