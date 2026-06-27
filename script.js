@@ -1,379 +1,411 @@
-/* =============================================
-   Beyond The Streets - Custom Styles
-   ============================================= */
+// Initialize Lucide Icons
+lucide.createIcons();
 
-/* === Base === */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+// === Preloader ===
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    setTimeout(() => {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 700);
+    }, 1200);
+});
 
-::selection {
-    background: rgba(249, 115, 22, 0.3);
-    color: white;
-}
+// === Navbar Scroll Effect ===
+const navbar = document.getElementById('navbar');
+let lastScroll = 0;
 
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #0a1628;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #1e40af;
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #2563eb;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    overflow-x: hidden;
-}
-
-/* === Preloader === */
-.loader-ring {
-    width: 60px;
-    height: 60px;
-    border: 3px solid transparent;
-    border-top-color: #f97316;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    position: relative;
-}
-
-.loader-ring::before {
-    content: '';
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    right: 3px;
-    bottom: 3px;
-    border: 3px solid transparent;
-    border-top-color: #2563eb;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite reverse;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* === Navigation === */
-#navbar {
-    background: transparent;
-}
-
-#navbar.scrolled {
-    background: rgba(10, 22, 40, 0.92);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-}
-
-.nav-link {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.7);
-    border-radius: 0.5rem;
-    transition: all 0.2s ease;
-    text-decoration: none;
-}
-
-.nav-link:hover {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.mobile-nav-link {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 0.5rem 1rem;
-    transition: all 0.2s ease;
-    text-decoration: none;
-}
-
-.mobile-nav-link:hover {
-    color: #f97316;
-    transform: translateX(8px);
-}
-
-/* === Glass Cards === */
-.glass-card {
-    background: rgba(255, 255, 255, 0.07);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 1rem;
-}
-
-.glass-card:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-/* === Hero === */
-.hero-video-bg {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-}
-
-.hero-video-bg video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Hero Particles */
-.hero-particles .particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: rgba(249, 115, 22, 0.4);
-    border-radius: 50%;
-    animation: float-particle linear infinite;
-}
-
-@keyframes float-particle {
-    0% {
-        transform: translateY(100vh) translateX(0) scale(0);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-        transform: translateY(90vh) translateX(10px) scale(1);
-    }
-    90% {
-        opacity: 0.5;
-    }
-    100% {
-        transform: translateY(-10vh) translateX(-20px) scale(0.5);
-        opacity: 0;
-    }
-}
-
-/* Hero Animations */
-.animate-fade-in-up {
-    animation: fadeInUp 0.8s ease-out forwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.hero-headline {
-    animation: fadeInUp 1s ease-out 0.2s both;
-}
-
-.hero-subtitle {
-    animation: fadeInUp 1s ease-out 0.4s both;
-}
-
-/* === Scroll Reveal === */
-.scroll-reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.scroll-reveal.revealed {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* === Progress Bar Animation === */
-.progress-bar {
-    transition: width 1.5s ease-out;
-}
-
-/* === Gallery Grid === */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
-}
-
-@media (min-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: 200px;
-    }
-
-    .gallery-item:nth-child(1) { grid-row: span 2; }
-    .gallery-item:nth-child(4) { grid-row: span 2; }
-    .gallery-item:nth-child(7) { grid-column: span 2; }
-    .gallery-item:nth-child(10) { grid-column: span 2; }
-}
-
-@media (min-width: 1024px) {
-    .gallery-grid {
-        grid-auto-rows: 220px;
-    }
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 1rem;
-    cursor: pointer;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.08);
-}
-
-.gallery-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(10, 22, 40, 0.9) 0%, transparent 60%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 1.25rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
-}
-
-/* === Donation Amount Selector === */
-.donation-amount.active-amount {
-    border-color: #f97316 !important;
-    background: rgba(249, 115, 22, 0.15) !important;
-    color: #fb923c;
-}
-
-/* === Payment Tabs === */
-.payment-tab {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.payment-tab.active-tab {
-    background: rgba(249, 115, 22, 0.15);
-    border-color: #f97316;
-    color: #f97316;
-}
-
-.payment-tab:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-}
-
-/* === Crypto Wallet Hover === */
-.crypto-wallet:hover {
-    border-color: rgba(249, 115, 22, 0.3);
-    background: rgba(255, 255, 255, 0.08);
-}
-
-/* === Counter Animation === */
-.counter {
-    display: inline-block;
-}
-
-/* === Form Focus States === */
-input:focus, select:focus, textarea:focus {
-    outline: none;
-}
-
-/* Select dropdown arrow */
-select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 18px;
-    padding-right: 40px;
-}
-
-/* === Responsive Typography === */
-@media (max-width: 640px) {
-    .hero-headline {
-        font-size: 2.5rem !important;
-    }
-}
-
-/* === Smooth Section Transitions === */
-section {
-    position: relative;
-}
-
-/* === Back to Top Button === */
-#backToTop.visible {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-
-/* === Toast Animation === */
-#toast.show {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
-}
-
-/* === Accessibility === */
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 80) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
     }
     
-    .scroll-reveal {
-        opacity: 1;
-        transform: none;
+    lastScroll = currentScroll;
+});
+
+// === Mobile Menu ===
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+let menuOpen = false;
+
+mobileMenuBtn.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    if (menuOpen) {
+        mobileMenu.style.transform = 'translateX(0)';
+        document.body.style.overflow = 'hidden';
+    } else {
+        closeMobileMenu();
+    }
+});
+
+function closeMobileMenu() {
+    menuOpen = false;
+    mobileMenu.style.transform = 'translateX(100%)';
+    document.body.style.overflow = '';
+}
+
+// === Scroll Reveal ===
+const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+scrollRevealElements.forEach(el => revealObserver.observe(el));
+
+// === Counter Animation ===
+const counters = document.querySelectorAll('.counter');
+
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const counter = entry.target;
+            const target = parseInt(counter.dataset.target);
+            const duration = 2000;
+            const start = 0;
+            const startTime = performance.now();
+
+            function updateCounter(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Ease out cubic
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                const current = Math.floor(easeOut * target);
+                
+                counter.textContent = current.toLocaleString();
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target.toLocaleString();
+                }
+            }
+            
+            requestAnimationFrame(updateCounter);
+            counterObserver.unobserve(counter);
+        }
+    });
+}, { threshold: 0.5 });
+
+counters.forEach(c => counterObserver.observe(c));
+
+// === Progress Bars ===
+const progressBars = document.querySelectorAll('.progress-bar');
+
+const progressObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const bar = entry.target;
+            const width = bar.dataset.width;
+            setTimeout(() => {
+                bar.style.width = width + '%';
+            }, 300);
+            progressObserver.unobserve(bar);
+        }
+    });
+}, { threshold: 0.5 });
+
+progressBars.forEach(b => progressObserver.observe(b));
+
+// === Hero Particles ===
+function createParticles() {
+    const container = document.querySelector('.hero-particles');
+    if (!container) return;
+    
+    const particleCount = 20;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const left = Math.random() * 100;
+        const size = Math.random() * 4 + 2;
+        const duration = Math.random() * 10 + 8;
+        const delay = Math.random() * 5;
+        
+        particle.style.left = left + '%';
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.animationDuration = duration + 's';
+        particle.style.animationDelay = delay + 's';
+        
+        // Alternate colors
+        if (i % 3 === 0) {
+            particle.style.background = 'rgba(37, 99, 235, 0.4)';
+        } else if (i % 3 === 1) {
+            particle.style.background = 'rgba(249, 115, 22, 0.4)';
+        } else {
+            particle.style.background = 'rgba(255, 255, 255, 0.2)';
+        }
+        
+        container.appendChild(particle);
     }
 }
 
-:focus-visible {
-    outline: 2px solid #f97316;
-    outline-offset: 2px;
+createParticles();
+
+// === Donation System ===
+let selectedAmount = 100;
+
+const donationAmounts = document.querySelectorAll('.donation-amount');
+const customAmountInput = document.getElementById('customAmount');
+const cardAmountDisplay = document.getElementById('cardAmount');
+
+donationAmounts.forEach(btn => {
+    btn.addEventListener('click', () => {
+        donationAmounts.forEach(b => b.classList.remove('active-amount'));
+        btn.classList.add('active-amount');
+        selectedAmount = parseInt(btn.dataset.amount);
+        customAmountInput.value = '';
+        updateAmountDisplay();
+    });
+});
+
+customAmountInput.addEventListener('input', () => {
+    if (customAmountInput.value) {
+        donationAmounts.forEach(b => b.classList.remove('active-amount'));
+        selectedAmount = parseInt(customAmountInput.value) || 0;
+    } else {
+        // Re-select default
+        selectedAmount = 100;
+        donationAmounts.forEach(b => {
+            if (b.dataset.amount === '100') b.classList.add('active-amount');
+        });
+    }
+    updateAmountDisplay();
+});
+
+function updateAmountDisplay() {
+    if (cardAmountDisplay) {
+        cardAmountDisplay.textContent = '$' + selectedAmount.toLocaleString();
+    }
 }
 
-/* === Print Styles === */
-@media print {
-    nav, #backToTop, #preloader, video, .hero-video-bg {
-        display: none !important;
-    }
+// === Payment Tabs ===
+const paymentTabs = document.querySelectorAll('.payment-tab');
+const paymentContents = document.querySelectorAll('.payment-content');
+
+paymentTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        const targetTab = tab.dataset.tab;
+        
+        paymentTabs.forEach(t => t.classList.remove('active-tab'));
+        tab.classList.add('active-tab');
+        
+        paymentContents.forEach(c => c.classList.add('hidden'));
+        document.getElementById('tab-' + targetTab).classList.remove('hidden');
+    });
+});
+
+// === Card Donation Handler ===
+function handleCardDonation(e) {
+    e.preventDefault();
+    const form = e.target;
+    const isValid = form.checkValidity();
     
-    body {
-        background: white;
-        color: black;
+    if (isValid) {
+        showToast('Thank you! Your $' + selectedAmount.toLocaleString() + ' donation is being processed.');
+        form.reset();
     }
+}
+
+// === Copy Crypto Address ===
+function copyAddress(address) {
+    navigator.clipboard.writeText(address).then(() => {
+        showToast('Wallet address copied to clipboard!');
+    }).catch(() => {
+        // Fallback
+        const textarea = document.createElement('textarea');
+        textarea.value = address;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast('Wallet address copied to clipboard!');
+    });
+}
+
+// === Volunteer Form Handler ===
+function handleVolunteerSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('volunteerForm');
+    const successMsg = document.getElementById('volunteerSuccess');
     
-    .glass-card {
-        background: #f5f5f5;
-        border: 1px solid #ddd;
-        backdrop-filter: none;
+    form.style.display = 'none';
+    successMsg.classList.remove('hidden');
+    showToast('Volunteer application submitted successfully!');
+    
+    // Re-initialize icons in success message
+    lucide.createIcons();
+}
+
+// === Contact Form Handler ===
+function handleContactSubmit(e) {
+    e.preventDefault();
+    e.target.reset();
+    showToast('Message sent! We\'ll get back to you soon.');
+}
+
+// === Gallery Lightbox ===
+const galleryItems = document.querySelectorAll('.gallery-item');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxCaption = document.getElementById('lightboxCaption');
+
+galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        const caption = item.dataset.caption;
+        
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCaption.textContent = caption;
+        lightbox.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+function closeLightbox() {
+    lightbox.classList.add('hidden');
+    document.body.style.overflow = '';
+}
+
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        closeLightbox();
     }
-}ole.log('%cBuilt with compassion and code.', 'color: #2563eb; font-size: 12px;');
+});
+
+// Close lightbox on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeLightbox();
+    }
+});
+
+// === Back to Top Button ===
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 600) {
+        backToTop.classList.add('visible');
+    } else {
+        backToTop.classList.remove('visible');
+    }
+});
+
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// === Toast Notification ===
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toastMessage');
+    
+    toastMessage.textContent = message;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3500);
+}
+
+// === Video Overlay Click Handlers ===
+document.querySelectorAll('.aspect-video [onclick], .aspect-\\[9\\/16\\] [onclick]').forEach(overlay => {
+    overlay.style.cursor = 'pointer';
+});
+
+// === Smooth Scroll for Anchor Links ===
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            e.preventDefault();
+            const offset = 80;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
+        }
+    });
+});
+
+// === Card Number Formatting ===
+const cardInput = document.querySelector('#cardForm input[placeholder="0000 0000 0000 0000"]');
+if (cardInput) {
+    cardInput.addEventListener('input', (e) => {
+        let value = e.target.value.replace(/\D/g, '');
+        value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
+        e.target.value = value;
+    });
+}
+
+// === Expiry Date Formatting ===
+const expiryInput = document.querySelector('#cardForm input[placeholder="MM/YY"]');
+if (expiryInput) {
+    expiryInput.addEventListener('input', (e) => {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length >= 2) {
+            value = value.substring(0, 2) + '/' + value.substring(2);
+        }
+        e.target.value = value;
+    });
+}
+
+// === Active Navigation Highlighting ===
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.style.color = '';
+        if (link.getAttribute('href') === '#' + current) {
+            link.style.color = '#f97316';
+        }
+    });
+});
+
+// === Performance: Lazy load images that aren't in viewport ===
+if ('IntersectionObserver' in window) {
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    // Native lazy loading is handled by the browser
+    // This is a fallback for older browsers
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.src; // Trigger load
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    lazyImages.forEach(img => imageObserver.observe(img));
+}
+
+console.log('%c🌍 Beyond The Streets - Humanity Has No Borders', 'color: #f97316; font-size: 16px; font-weight: bold;');
+console.log('%cBuilt with compassion and code.', 'color: #2563eb; font-size: 12px;');
