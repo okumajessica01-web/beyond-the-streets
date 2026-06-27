@@ -1,15 +1,22 @@
-// Initialize Lucide Icons
-lucide.createIcons();
+// --- Preloader & Icons ---
+window.addEventListener("load", () => {
+    try {
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    } catch (e) {
+        console.error("Lucide failed:", e);
+    }
 
-// === Preloader ===
-window.addEventListener('load', () => {
-    const preloader = document.getElementById('preloader');
-    setTimeout(() => {
-        preloader.style.opacity = '0';
+    const preloader = document.getElementById("preloader");
+    if (preloader) {
         setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 700);
-    }, 1200);
+            preloader.style.opacity = "0";
+            setTimeout(() => {
+                preloader.style.display = "none";
+            }, 700);
+        }, 1200);
+    }
 });
 
 // === Navbar Scroll Effect ===
